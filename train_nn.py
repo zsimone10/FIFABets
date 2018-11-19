@@ -5,9 +5,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 from keras.utils import plot_model
 import pandas as pd
-
+from keras.callbacks import ModelCheckpoint
+import sys
 
 np.random.seed(7)
+# numEpochs = 10000
+# if len(sys.argv) > 1:
+#     numEpochs = sys.argv[1]
+
 
 #########################################
 #TODO: Write dataset loading
@@ -21,11 +26,6 @@ def load_data(path):
 x = load_data('cleaned_data.csv')
 print(x)
 y = load_data('labels.csv')
-# x = np.random.random((1000, 80))
-# y = utils.to_categorical(np.random.randint(2, size=(1000, 1)), num_classes=3)
-#x_test = np.random.random((100, 80))
-#y_test = utils.to_categorical(np.random.randint(2, size=(100, 1)), num_classes=3)
-
 
 #########################################
 #Build Network
@@ -40,26 +40,46 @@ model.add(Dense(512, input_dim=78))
 model.add(Activation('sigmoid'))
 model.add(Dense(128))
 model.add(Activation('sigmoid'))
+model.add(Dense(128))
+model.add(Activation('sigmoid'))
 model.add(Dense(64))
 model.add(Activation('sigmoid'))
 model.add(Dense(3))
 model.add(Activation('softmax'))
 
 
-sgd = optimizers.SGD(lr=0.09,)
-model.compile(loss='categorical_crossentropy', optimizer=sgd,
-              metrics=['accuracy'])
+
 plot_model(model, to_file='model.png')
 print(model.summary())
+ext = []
+for j in range(0,2):
+    ext.append(np.transpose(x[j]))
+Xnew = np.asarray(ext)
+print(Xnew, Xnew.shape)
+# make a prediction
+ynew = model.predict(Xnew)
+# show the inputs and predicted outputs
+for i in range(0, len(ynew)):
+    print("X=%s, Predicted=%s" % (Xnew, ynew[i]))
 #########################################
 #Train
 #
 #
 print("TRAINING...")
+filepath="weights/weights-improvement-{epoch:02d}-{val_acc:.2f}.hdf5"
+checkpoint = ModelCheckpoint(filepath, monitor='val_loss', verbose=1, save_best_only=False, save_weights_only=False, mode='auto', period=500)
+
+callbacks_list = [checkpoint]
 history = model.fit(x, y,
-        validation_split=0.25, #initially .25
-        epochs=10000,
-        batch_size=10)
+        validation_split=0.1, #initially .25
+        epochs=2000,
+        batch_size=10,
+        callbacks = callbacks_list)
+
+ynew = model.predict(Xnew)
+# show the inputs and predicted outputs
+for i in range(0, len(ynew)):
+    print("X=%s, Predicted=%s" % (Xnew, ynew[i]))
 
 #########################################
 #Run Metrics

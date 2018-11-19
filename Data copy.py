@@ -21,7 +21,6 @@ from sklearn import preprocessing
 
 
 #just reading data
-print("READING DATA...")
 con = sq.connect("database.sqlite")
 team_atts = pd.read_sql_query("SELECT * from Team_Attributes", con)
 teams = pd.read_sql_query("SELECT * from Team", con)
@@ -50,7 +49,7 @@ st = time.time()
 
 denom = len(matches.columns.values)
 
-print("COMPILING DATASET...")
+
 ### Add blank columns for team attributes to be filled in for each match
 for column in list(team_atts.columns.values):
     matches['__home_' + column] = np.nan
@@ -210,11 +209,8 @@ matches
 to_remove = []
 no_missing = matches.columns.values[:30]
 for index, match in matches.iterrows():
-    for col in no_missing:
-        tooMany = 0
+    for col in no_missing: 
         if pd.isnull(match[col]):
-            tooMany += 1
-        if tooMany >= 15:
             to_remove.append(index)
 matches = matches.drop(to_remove, axis=0)
     
