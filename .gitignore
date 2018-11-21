@@ -1,2 +1,7 @@
 *.csv
 *.sqlite
+*.hdf5
+weights/
+results/
+*.png
+*.xml
