@@ -5,3 +5,4 @@ weights/
 results/
 *.png
 *.xml
+.DS_Store
