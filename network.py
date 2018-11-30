@@ -60,7 +60,7 @@ class Network:
     def load_weights(self, weights):
         self.model.load_weights(weights)
 
-    def plot_confusion_matrix(cm, classes,
+    def plot_confusion_matrix(self, cm, classes,
                               normalize=False,
                               cmap=plt.cm.Blues):
         """
@@ -105,7 +105,7 @@ class Network:
             y_true = np.argmax(y_true, axis=1)
 
         # 2. Predict classes and stores in y_pred
-        y_pred = self.model.model.predict(x, batch_size=batch_size)
+        y_pred = self.model.predict(x, batch_size=batch_size)
         y_pred = np.argmax(y_pred, axis=1)
         # 3. Print accuracy score
         print("Accuracy : " + str(accuracy_score(y_true, y_pred)))
@@ -119,7 +119,7 @@ class Network:
         # 5. Plot confusion matrix
         cnf_matrix = confusion_matrix(y_true, y_pred)
         print(cnf_matrix)
-        plot_confusion_matrix(cnf_matrix, classes=classes)
+        self.plot_confusion_matrix(cnf_matrix, classes=classes)
 
     # full_multiclass_report(self.model,
     #                        x_test,
@@ -130,6 +130,6 @@ class Network:
         self.full_multiclass_report(
                        x_test,
                        y_test,
-                       le.inverse_transform(np.arange(3)))
+                       le.inverse_transform([2,1,0]))
 
 
