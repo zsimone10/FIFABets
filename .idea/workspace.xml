@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7edca93e-9199-4116-8fbd-ddc77cd0a597" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/NN/dqn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/17-18_odds.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/18-19_odds.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data copy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataExtract.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/env.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/network.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/predict.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrape_team_attributes.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_nn.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights/SGD/weights-improvement-1000-0.46.hdf5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights/SGD/weights-improvement-1500-0.46.hdf5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights/SGD/weights-improvement-2000-0.45.hdf5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights/SGD/weights-improvement-500-0.46.hdf5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrape_team_attributes.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scrape_team_attributes.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +25,7 @@
         <counts>
           <entry key="csv" value="8" />
           <entry key="gitignore" value="1" />
-          <entry key="ipynb" value="4" />
+          <entry key="ipynb" value="5" />
           <entry key="json" value="1" />
           <entry key="py" value="25" />
         </counts>
@@ -53,7 +33,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSV" value="4" />
-          <entry key="IPNB" value="4" />
+          <entry key="IPNB" value="5" />
           <entry key="JSON" value="1" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="Python" value="25" />
@@ -74,72 +54,17 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6084788">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/NN/dqn.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="465">
-                  <caret line="31" column="37" lean-forward="true" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/NN/env/env.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1221">
-                  <caret line="174" column="20" lean-forward="true" selection-start-line="174" selection-start-column="20" selection-end-line="174" selection-end-column="20" />
-                  <folding>
-                    <element signature="e#0#27#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/NN/env/__init__.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="150">
-                  <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/NN/betRL.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-176">
-                  <folding>
-                    <element signature="e#0#10#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/NN/network.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="438">
-                  <caret line="46" column="6" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
-                  <folding>
-                    <element signature="e#0#35#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scrape_team_attributes.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="0" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -171,7 +96,6 @@
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/env/__init__.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/scrape_team_attributes.ipynb" />
         <option value="$PROJECT_DIR$/betRL.py" />
         <option value="$PROJECT_DIR$/predict.py" />
         <option value="$PROJECT_DIR$/env/env.py" />
@@ -181,6 +105,7 @@
         <option value="$PROJECT_DIR$/NN/env/env.py" />
         <option value="$PROJECT_DIR$/NN/dqn.py" />
         <option value="$PROJECT_DIR$/NN/network.py" />
+        <option value="$PROJECT_DIR$/scrape_team_attributes.ipynb" />
       </list>
     </option>
   </component>
@@ -208,17 +133,6 @@
             <path>
               <item name="FIFABets" type="b2602c69:ProjectViewProjectNode" />
               <item name="FIFABets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FIFABets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FIFABets" type="462c0819:PsiDirectoryNode" />
-              <item name="NN" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FIFABets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FIFABets" type="462c0819:PsiDirectoryNode" />
-              <item name="NN" type="462c0819:PsiDirectoryNode" />
-              <item name="env" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -318,17 +232,6 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/NN/network.py</url>
-          <line>28</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Data.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -396,13 +299,6 @@
       <provider selected="true" editor-type-id="csv-text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scrape_team_attributes.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="0" />
         </state>
       </provider>
     </entry>
@@ -523,6 +419,13 @@
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scrape_team_attributes.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
         </state>
       </provider>
     </entry>
