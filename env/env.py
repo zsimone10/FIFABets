@@ -182,10 +182,10 @@ class BetEnv1(Env):
         return (self.match, self.cash)
 
     def getSeason(self, filename):
-        x = pd.read_csv('cleaned_data_1718.csv')
+        x = pd.read_csv('cleaned_data.csv')
         x = x.drop([0], axis=0)
         x = x.drop(["Unnamed: 0"], axis=1)
-        y = pd.read_csv('labels_1718.csv')
+        y = pd.read_csv('labels.csv')
         y = y.drop([0], axis=0)
         y = y.drop(["Unnamed: 0"], axis=1)
         print( x, y)
