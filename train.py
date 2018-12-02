@@ -36,9 +36,9 @@ def load_data(path):
     #data = data.drop([0], axis=0)
     return data
     #RETURN data.as_matrix()
-x = load_data('cleaned_data.csv')
+x = load_data('most_seasons_unnormalized.csv')
 #print(x)
-y = load_data('labels.csv')
+y = load_data('labels_most_seasons.csv')
 
 ############
 #RESAMPLE
