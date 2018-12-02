@@ -6,3 +6,6 @@ results/
 *.png
 *.xml
 .DS_Store
+.ipynb_checkpoints/
+*.pyc
+data/
