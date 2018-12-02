@@ -1,7 +1,3 @@
-from keras.models import Sequential
-from keras.layers import Dense, Activation, Dropout
-from keras import optimizers#, uti
-import matplotlib.pyplot as plt
 import numpy as np
 from keras.utils import plot_model
 import pandas as pd
@@ -18,6 +14,7 @@ from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import cross_val_score
+from sklearn import tree
 
 
 seed = np.random.seed(7)
@@ -151,50 +148,32 @@ le = LabelEncoder()
 le.fit(["Home Win", "Draw", "Away Win"])
 print(le.classes_)
 
-#SVM Linear Model
+#train Decision Tree
+
+dt = tree.DecisionTreeClassifier()
+
+dt.fit(scaledX_train, y_train1)
 
 
-#svm = SVC(kernel='linear', C=1, probability=False,random_state=0, verbose = False, tol=0.001, cache_size=1, max_iter = 100)
-Cs = [0.001, 0.01, 0.1, 1, 10]
-gammas = [0.001, 0.01, 0.1, 1]
-param_grid = {'C': Cs, 'gamma' : gammas}
-#for C in Cs:
-#    for gamma in gammas:
-svm = SVC(kernel='rbf', probability=False, verbose = False, tol= 1e-6, cache_size=10000, C = 1)
+y_pred_train = dt.predict(scaledX_train)
+y_pred_test = dt.predict(scaledX_test)
+y_pred_testR = dt.predict(scaledXR_test)
 
-#all_accuracies = cross_val_score(estimator=svm, X=scaledX_train, y=y_train1, cv=5)
-
-#print(all_accuracies)
-#print(all_accuracies.mean())
-#print(all_accuracies.std())
-
-svm.fit(scaledX_train, y_train1)
+accuracy_train = accuracy_score(y_train1, y_pred_train)
+accuracy_test = accuracy_score(y_test1, y_pred_test)
+accuracy_testR = accuracy_score(y_testRe, y_pred_testR)
 
 
-y_pred = svm.predict(scaledX_test)
-#y_prob = svm.predict_proba(scaledX_test)
-accuracy = accuracy_score(y_test1, y_pred)
-print("rbf:", accuracy*100)
+print("DT on Train:", accuracy_train*100)
+print("DT on Test:", accuracy_test*100)
+print("DT on Recent Test:", accuracy_testR*100)
 
-#Cs = [0.001, 0.01, 0.1, 1, 10]
-#gammas = [0.001, 0.01, 0.1, 1]
-#param_grid = {'C': Cs, 'gamma' : gammas}
-#grid_search = GridSearchCV(svm, param_grid, cv=2)
-#grid_search.fit(scaledX_train, y_train1)
-#print (grid_search.best_params_)
+cnf_matrix_train = confusion_matrix(y_train1, y_pred_train)
+cnf_matrix_test = confusion_matrix(y_test1, y_pred_test)
+cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
 
-#best_result = grid_search.best_score_
-#print('Best C:',grid_search.best_estimator_.C)
-#print('Best Gamma:', grid_search.best_estimator_.gamma)
-#print(best_result)
+print(cnf_matrix_train)
+print(cnf_matrix_test)
+print(cnf_matrix_testR)
 
-
-
-
-#print("rbf")
-
-
-cnf = confusion_matrix(y_test1, y_pred)
-
-print(cnf)
-print(classification_report(y_test1, y_pred))
+#print(classification_report(y_test1, y_pred))
