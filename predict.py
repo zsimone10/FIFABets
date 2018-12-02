@@ -32,9 +32,9 @@ def load_data(path):
     data = data.drop([0], axis=1)
     data = data.drop([0], axis=0)
     return data.as_matrix()
-x = load_data('recent_seasons_unnormalized.csv')
+x = load_data('data/recent_seasons_unnormalized.csv')
 print(x)
-y = load_data('recent_seasons_labels.csv')
+y = load_data('data/labels_recent_seasons.csv')
 x_train, x_test, y_train, y_test = train_test_split(x, y, train_size=0.9, random_state=seed)
 #CLASSES DEFINE
 le = LabelEncoder()

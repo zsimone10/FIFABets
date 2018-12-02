@@ -36,7 +36,7 @@ class Network:
         print(model.summary())
         return model
 
-    def train(self, x, y, epochs=500, period=250):
+    def train(self, x, y, epochs=500, period=400):
         print("TRAINING...")
         #sgd = optimizers.SGD(lr=0.09)
         adadelta = optimizers.Adadelta()
