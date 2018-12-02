@@ -2,6 +2,8 @@ import numpy as np
 from keras.utils import plot_model
 import pandas as pd
 from keras.callbacks import ModelCheckpoint
+import matplotlib.pyplot as plt
+
 import sys
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split, KFold, GridSearchCV
@@ -26,13 +28,13 @@ def load_data(path):
     #data = data.drop([0], axis=0)
     return data
     #RETURN data.as_matrix()
-x = load_data('data_current.csv')
+x = load_data('data/most_seasons_unnormalized.csv')
 #print(x)
-y = load_data('labels_current.csv')
+y = load_data('data/labels_most_seasons.csv')
 
-x1 = load_data('recent_data_current.csv')
+x1 = load_data('data/labels_recent_seasons.csv')
 #print(x)
-y1 = load_data('recent_labels_current.csv')
+y1 = load_data('data/recent_seasons_unnormalized.csv')
 
 def parseData(x, y, c):
 ############
