@@ -29,13 +29,13 @@ def load_data(path):
     #data = data.drop([0], axis=0)
     return data
     #RETURN data.as_matrix()
-x = load_data('data_current.csv')
+x = load_data('data/most_seasons_unnormalized.csv')
 #print(x)
-y = load_data('labels_current.csv')
+y = load_data('data/labels_most_seasons.csv')
 
-x1 = load_data('recent_data_current.csv')
+x1 = load_data('data/labels_recent_seasons.csv')
 #print(x)
-y1 = load_data('recent_labels_current.csv')
+y1 = load_data('data/recent_seasons_unnormalized.csv')
 
 def parseData(x, y, c):
 ############
@@ -173,8 +173,23 @@ svm.fit(scaledX_train, y_train1)
 
 y_pred = svm.predict(scaledX_test)
 #y_prob = svm.predict_proba(scaledX_test)
-accuracy = accuracy_score(y_test1, y_pred)
-print("rbf:", accuracy*100)
+y_pred_train = dt.predict(scaledX_train)
+y_pred_test = dt.predict(scaledX_test)
+y_pred_testR = dt.predict(scaledXR_test)
+
+accuracy_train = accuracy_score(y_train1, y_pred_train)
+accuracy_test = accuracy_score(y_test1, y_pred_test)
+accuracy_testR = accuracy_score(y_testRe, y_pred_testR)
+
+
+print("rbf on Train:", accuracy_train*100)
+print("rbf on Test:", accuracy_test*100)
+print("rbf on Recent Test:", accuracy_testR*100)
+
+cnf_matrix_train = confusion_matrix(y_train1, y_pred_train)
+cnf_matrix_test = confusion_matrix(y_test1, y_pred_test)
+cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
+
 
 #Cs = [0.001, 0.01, 0.1, 1, 10]
 #gammas = [0.001, 0.01, 0.1, 1]
@@ -192,9 +207,39 @@ print("rbf:", accuracy*100)
 
 
 #print("rbf")
+def plot_confusion_matrix(cm, classes, normalize=False,cmap=plt.cm.Blues):
+        """
+        This function prints and plots the confusion matrix.
+        Normalization can be applied by setting `normalize=True`.
+        """
+        if normalize:
+            cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+            title = 'Normalized confusion matrix'
+        else:
+            title = 'Confusion matrix'
+
+        plt.imshow(cm, interpolation='nearest', cmap=cmap)
+        plt.title(title)
+        plt.colorbar()
+        tick_marks = np.arange(len(classes))
+        plt.xticks(tick_marks, classes, rotation=45)
+        plt.yticks(tick_marks, classes)
+
+        fmt = '.2f' if normalize else 'd'
+        thresh = cm.max() / 2.
+        for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+            plt.text(j, i, format(cm[i, j], fmt),
+            horizontalalignment="center",
+            color="white" if cm[i, j] > thresh else "black")
+
+        plt.tight_layout()
+        plt.ylabel('True label')
+        plt.xlabel('Predicted label')
+        plt.show()
 
 
-cnf = confusion_matrix(y_test1, y_pred)
+plot_confusion_matrix(cnf_matrix_train, classes = ["Home", "Draw", "Away"])
+plot_confusion_matrix(cnf_matrix_test, classes = ["Home", "Draw", "Away"])
+plot_confusion_matrix(cnf_matrix_testR, classes = ["Home", "Draw", "Away"])
 
-print(cnf)
-print(classification_report(y_test1, y_pred))
+#print(classification_report(y_test1, y_pred))

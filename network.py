@@ -22,7 +22,7 @@ class Network:
         print("BUILDING NETWORK...")
 
         model = Sequential()
-        model.add(Dense(512, input_dim=78))
+        model.add(Dense(512, input_dim=74))
         model.add(Activation('sigmoid'))
         model.add(Dense(128))
         model.add(Activation('sigmoid'))
