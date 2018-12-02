@@ -18,6 +18,7 @@ from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import cross_val_score
+from joblib import dump, load
 
 
 seed = np.random.seed(7)
@@ -173,9 +174,9 @@ svm.fit(scaledX_train, y_train1)
 
 y_pred = svm.predict(scaledX_test)
 #y_prob = svm.predict_proba(scaledX_test)
-y_pred_train = dt.predict(scaledX_train)
-y_pred_test = dt.predict(scaledX_test)
-y_pred_testR = dt.predict(scaledXR_test)
+y_pred_train = svm.predict(scaledX_train)
+y_pred_test = svm.predict(scaledX_test)
+y_pred_testR = svm.predict(scaledXR_test)
 
 accuracy_train = accuracy_score(y_train1, y_pred_train)
 accuracy_test = accuracy_score(y_test1, y_pred_test)
@@ -204,9 +205,11 @@ cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
 #print(best_result)
 
 
-
+dump(svm, 'SVM.joblib')
 
 #print("rbf")
+
+
 def plot_confusion_matrix(cm, classes, normalize=False,cmap=plt.cm.Blues):
         """
         This function prints and plots the confusion matrix.
@@ -242,4 +245,4 @@ plot_confusion_matrix(cnf_matrix_train, classes = ["Home", "Draw", "Away"])
 plot_confusion_matrix(cnf_matrix_test, classes = ["Home", "Draw", "Away"])
 plot_confusion_matrix(cnf_matrix_testR, classes = ["Home", "Draw", "Away"])
 
-#print(classification_report(y_test1, y_pred))
+print(classification_report(y_test1, y_pred))
