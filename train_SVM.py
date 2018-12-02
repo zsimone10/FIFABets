@@ -18,6 +18,7 @@ from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import cross_val_score
+from joblib import dump, load
 
 
 seed = np.random.seed(7)
@@ -241,5 +242,8 @@ def plot_confusion_matrix(cm, classes, normalize=False,cmap=plt.cm.Blues):
 plot_confusion_matrix(cnf_matrix_train, classes = ["Home", "Draw", "Away"])
 plot_confusion_matrix(cnf_matrix_test, classes = ["Home", "Draw", "Away"])
 plot_confusion_matrix(cnf_matrix_testR, classes = ["Home", "Draw", "Away"])
+
+
+dump(svm, 'SVM.joblib')
 
 #print(classification_report(y_test1, y_pred))
