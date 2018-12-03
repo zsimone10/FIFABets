@@ -36,7 +36,7 @@ x1 = load_data('data/labels_recent_seasons.csv')
 #print(x)
 y1 = load_data('data/recent_seasons_unnormalized.csv')
 
-def parseData(x, y, c):
+def parseData(x, y, c, resampling):
 ############
 #RESAMPLE
     data = pd.concat([x, y], axis=1)
@@ -44,22 +44,28 @@ def parseData(x, y, c):
 
 #data = data.drop([0], axis=0)
 #print(data)
+
     home_wins = data[data["Home"] == 1]
     draws = data[data["Draw"] == 1]
     away_wins = data[data["Away"] == 1]
     print(len(home_wins), len(draws), len(away_wins))
-    draws_resampled = resample(draws,
-                                 replace=True,     # sample with replacement
-                                 n_samples=math.ceil(len(home_wins)*0.8),    # to half home_wins
-                                 random_state=123) # reproducible results
-    away_wins_resampled = resample(away_wins,
-                                 replace=True,     # sample with replacement
-                                 n_samples=math.ceil(len(home_wins)*0.85),    # to match majority class
-                                 random_state=123) # reproducible results
 
-    print(len(home_wins), len(draws_resampled), len(away_wins_resampled))
-    resampled = pd.concat([draws_resampled, away_wins_resampled])
+    if resampling:
+        draws_resampled = resample(draws,
+                                    replace=True,     # sample with replacement
+                                    n_samples=math.ceil(len(home_wins)*0.8),    # to half home_wins
+                                    random_state=123) # reproducible results
+        away_wins_resampled = resample(away_wins,
+                                    replace=True,     # sample with replacement
+                                    n_samples=math.ceil(len(home_wins)*0.85),    # to match majority class
+                                    random_state=123) # reproducible results
+
+        print(len(home_wins), len(draws_resampled), len(away_wins_resampled))
+        resampled = pd.concat([draws_resampled, away_wins_resampled])
 #print(resampled)
+    else:
+        resampled =  pd.concat([draws, away_wins])
+
     data = pd.concat([home_wins, resampled])
 
 
@@ -80,8 +86,9 @@ def parseData(x, y, c):
 
 ##############
 
-x_train, x_test, y_train, y_test = parseData(x,y, 0.9)
-x_trainR, x_testR, y_trainR, y_testR = parseData(x1,y1, 0.0)
+x_train, x_test, y_train, y_test = parseData(x,y, 0.9, resampling = 1)
+x_trainR, x_testR, y_trainR, y_testR = parseData(x1,y1, 0.0, resampling = 0)
+
 
 ############
 #RESAMPLE
@@ -176,7 +183,7 @@ cnf_matrix_train = confusion_matrix(y_train1, y_pred_train)
 cnf_matrix_test = confusion_matrix(y_test1, y_pred_test)
 cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
 
-dump(svm, 'SVM.joblib')
+
 
 
 
