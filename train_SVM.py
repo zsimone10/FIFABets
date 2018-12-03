@@ -38,7 +38,7 @@ x1 = load_data('data/labels_recent_seasons.csv')
 #print(x)
 y1 = load_data('data/recent_seasons_unnormalized.csv')
 
-def parseData(x, y, c):
+def parseData(x, y, c, resampling):
 ############
 #RESAMPLE
     data = pd.concat([x, y], axis=1)
@@ -46,22 +46,28 @@ def parseData(x, y, c):
 
 #data = data.drop([0], axis=0)
 #print(data)
+
     home_wins = data[data["Home"] == 1]
     draws = data[data["Draw"] == 1]
     away_wins = data[data["Away"] == 1]
     print(len(home_wins), len(draws), len(away_wins))
-    draws_resampled = resample(draws,
-                                 replace=True,     # sample with replacement
-                                 n_samples=math.ceil(len(home_wins)*0.8),    # to half home_wins
-                                 random_state=123) # reproducible results
-    away_wins_resampled = resample(away_wins,
-                                 replace=True,     # sample with replacement
-                                 n_samples=math.ceil(len(home_wins)*0.85),    # to match majority class
-                                 random_state=123) # reproducible results
 
-    print(len(home_wins), len(draws_resampled), len(away_wins_resampled))
-    resampled = pd.concat([draws_resampled, away_wins_resampled])
+    if resampling:
+        draws_resampled = resample(draws,
+                                    replace=True,     # sample with replacement
+                                    n_samples=math.ceil(len(home_wins)*0.8),    # to half home_wins
+                                    random_state=123) # reproducible results
+        away_wins_resampled = resample(away_wins,
+                                    replace=True,     # sample with replacement
+                                    n_samples=math.ceil(len(home_wins)*0.85),    # to match majority class
+                                    random_state=123) # reproducible results
+
+        print(len(home_wins), len(draws_resampled), len(away_wins_resampled))
+        resampled = pd.concat([draws_resampled, away_wins_resampled])
 #print(resampled)
+    else:
+        resampled =  pd.concat([draws, away_wins])
+
     data = pd.concat([home_wins, resampled])
 
 
@@ -82,8 +88,8 @@ def parseData(x, y, c):
 
 ##############
 
-x_train, x_test, y_train, y_test = parseData(x,y, 0.9)
-x_trainR, x_testR, y_trainR, y_testR = parseData(x1,y1, 0.0)
+x_train, x_test, y_train, y_test = parseData(x,y, 0.9, resampling = 1)
+x_trainR, x_testR, y_trainR, y_testR = parseData(x1,y1, 0.0, resampling = 0)
 
 ############
 #RESAMPLE
@@ -150,7 +156,7 @@ y_testRe = np.asarray(changed_y_test_listR)
 
 le = LabelEncoder()
 le.fit(["Home Win", "Draw", "Away Win"])
-print(le.classes_)
+#print(le.classes_)
 
 #SVM Linear Model
 
@@ -161,7 +167,7 @@ gammas = [0.001, 0.01, 0.1, 1]
 param_grid = {'C': Cs, 'gamma' : gammas}
 #for C in Cs:
 #    for gamma in gammas:
-svm = SVC(kernel='rbf', probability=False, verbose = False, tol= 1e-6, cache_size=10000, C = 1)
+svm = SVC(kernel='poly', probability=False, verbose = False, tol= 1e-6, cache_size=10000, C = 1, max_iter = 100000)
 
 #all_accuracies = cross_val_score(estimator=svm, X=scaledX_train, y=y_train1, cv=5)
 
@@ -205,12 +211,9 @@ cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
 #print(best_result)
 
 
-dump(svm, 'SVM.joblib')
-
-#print("rbf")
-
-
-def plot_confusion_matrix(cm, classes, normalize=False,cmap=plt.cm.Blues):
+def plot_confusion_matrix( cm, classes,
+                              normalize=False,
+                              cmap=plt.cm.Blues):
         """
         This function prints and plots the confusion matrix.
         Normalization can be applied by setting `normalize=True`.
@@ -221,28 +224,29 @@ def plot_confusion_matrix(cm, classes, normalize=False,cmap=plt.cm.Blues):
         else:
             title = 'Confusion matrix'
 
-        plt.imshow(cm, interpolation='nearest', cmap=cmap)
-        plt.title(title)
-        plt.colorbar()
-        tick_marks = np.arange(len(classes))
-        plt.xticks(tick_marks, classes, rotation=45)
-        plt.yticks(tick_marks, classes)
+            plt.imshow(cm, interpolation='nearest', cmap=cmap)
+            plt.title(title)
+            plt.colorbar()
+            tick_marks = np.arange(len(classes))
+            plt.xticks(tick_marks, classes, rotation=45)
+            plt.yticks(tick_marks, classes)
 
-        fmt = '.2f' if normalize else 'd'
-        thresh = cm.max() / 2.
-        for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-            plt.text(j, i, format(cm[i, j], fmt),
-            horizontalalignment="center",
-            color="white" if cm[i, j] > thresh else "black")
+            fmt = '.2f' if normalize else 'd'
+            thresh = cm.max() / 2.
+            for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+                 plt.text(j, i, format(cm[i, j], fmt),
+                 horizontalalignment="center",
+                 color="white" if cm[i, j] > thresh else "black")
 
         plt.tight_layout()
         plt.ylabel('True label')
         plt.xlabel('Predicted label')
         plt.show()
 
+plot_confusion_matrix(cnf_matrix_train, ["Home Win", "Draw", "Away Win"])
+plot_confusion_matrix(cnf_matrix_test, ["Home Win", "Draw", "Away Win"])
+plot_confusion_matrix(cnf_matrix_testR, ["Home Win", "Draw", "Away Win"])
 
-plot_confusion_matrix(cnf_matrix_train, classes = ["Home", "Draw", "Away"])
-plot_confusion_matrix(cnf_matrix_test, classes = ["Home", "Draw", "Away"])
-plot_confusion_matrix(cnf_matrix_testR, classes = ["Home", "Draw", "Away"])
-
-print(classification_report(y_test1, y_pred))
+print(classification_report(y_train1, y_pred_train))
+print(classification_report(y_test1, y_pred_test))
+print(classification_report(y_testRe, y_pred_testR))
