@@ -17,6 +17,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import cross_val_score
 from sklearn import tree
+from joblib import dump, load
 
 
 seed = np.random.seed(7)
@@ -176,7 +177,7 @@ cnf_matrix_train = confusion_matrix(y_train1, y_pred_train)
 cnf_matrix_test = confusion_matrix(y_test1, y_pred_test)
 cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
 
-dump(svm, 'SVM.joblib')
+dump(dt, 'DT.joblib')
 
 
 

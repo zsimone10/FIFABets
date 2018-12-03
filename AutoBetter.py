@@ -13,7 +13,7 @@ BetNet.load_weights("weights/Adadelta/test9_400/weights-improvement-400-0.48.hdf
 print("LOADING BETTING POLICY...")
 
 q_table = None
-with open('q_table.json') as f:
+with open('q_table_NN_3milli.json') as f:
     q_table = json.load(f)
 
 new_q_table = defaultdict( lambda: defaultdict(float))
@@ -37,7 +37,7 @@ x, y =  x.as_matrix(), y.as_matrix()
 x, y = x[320:], y[320:]
 print("BETTING...")
 
-cash = 50
+cash = 5
 for i in range(0, x.shape[0]):
     ex = x[i]
     pred = BetNet.model.predict(np.asarray([ex]))

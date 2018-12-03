@@ -43,9 +43,9 @@ class BetEnv(Env):
         # # determine who the last team we bet on is
         # #print(action[0], self.cash)
         # if action[0] < 0:
-        #     last_bet_on == "Away"
+        #     last_bet_on = "Away"
         # elif action[0] > 0:
-        #     last_bet_on == "Home"
+        #     last_bet_on = "Home"
         # else:
         #     last_bet_on == "no one"
         #
