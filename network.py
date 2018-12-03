@@ -22,7 +22,7 @@ class Network:
         print("BUILDING NETWORK...")
 
         model = Sequential()
-        model.add(Dense(512, input_dim=78))
+        model.add(Dense(512, input_dim=74))
         model.add(Activation('sigmoid'))
         model.add(Dense(128))
         model.add(Activation('sigmoid'))
@@ -36,7 +36,7 @@ class Network:
         print(model.summary())
         return model
 
-    def train(self, x, y, epochs=500, period=250):
+    def train(self, x, y, epochs=500, period=400):
         print("TRAINING...")
         #sgd = optimizers.SGD(lr=0.09)
         adadelta = optimizers.Adadelta()
