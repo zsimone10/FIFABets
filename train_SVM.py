@@ -264,6 +264,8 @@ def plot_confusion_matrix( cm, classes,
 #plot_confusion_matrix(cnf_matrix_test, ["Home Win", "Draw", "Away Win"])
 #plot_confusion_matrix(cnf_matrix_testR, ["Home Win", "Draw", "Away Win"])
 
+dump(svm, 'svm.joblib') 
+
 print(cnf_matrix_train)
 print(cnf_matrix_test)
 print(cnf_matrix_testR)

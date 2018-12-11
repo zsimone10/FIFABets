@@ -203,7 +203,7 @@ cnf_matrix_test = confusion_matrix(y_test1, y_pred_test)
 cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
 
 
-dump(dt, 'DT.joblib')
+dump(dt, 'dt.joblib')
 
 
 
