@@ -200,3 +200,5 @@ cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
 print(cnf_matrix_train)
 print(cnf_matrix_test)
 print(cnf_matrix_testR)
+
+dump(gnb, 'gnb.joblib')
