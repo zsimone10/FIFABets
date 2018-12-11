@@ -13,55 +13,37 @@ from sklearn.metrics import confusion_matrix, classification_report, accuracy_sc
 import itertools
 from keras import regularizers
 
-
 np.random.seed(7)
 
-class Network:
+class LogReg:
     def __init__(self, data_dim):
         self.model = self.create(data_dim)
 
     def create(self, data_dim):
         print("BUILDING NETWORK...")
-        print("Data Dimension: ", data_dim)
+
 
         model = Sequential()
 
-        if data_dim < 50:
-            print("ADDING REGULARIZATION...")
-            model.add(
-                Dense(512, input_dim=data_dim))
-            model.add(Activation('sigmoid'))
 
-            model.add(
-                Dense(128))
-            model.add(Activation('sigmoid'))
+                ## 2 layer neural net
+        # model.add(Dense(64, input_dim=74))
+        # model.add(Activation('sigmoid'))
+        # model.add(Dense(3))
+        # model.add(Activation('softmax'))
 
-            model.add(
-                Dense(128))
-            model.add(Activation('sigmoid'))
-
-            model.add(
-                Dense(64, W_regularizer=regularizers.l2(0.01)))
-            model.add(Activation('sigmoid'))
-
-            model.add(Dense(3, activity_regularizer=regularizers.l2(0.01)))
-        else:
-            model.add(Dense(512, input_dim=data_dim))
-            model.add(Activation('sigmoid'))
-            model.add(Dense(128))
-            model.add(Activation('sigmoid'))
-            model.add(Dense(128))
-            model.add(Activation('sigmoid'))
-            model.add(Dense(64))
-            model.add(Activation('sigmoid'))
-            model.add(Dense(3))
-
+                ## logistic regression
+        model.add(Dense(3, input_dim=data_dim, activity_regularizer=regularizers.l2(0.01)))
         model.add(Activation('softmax'))
+        
+
+
+
         plot_model(model, to_file='model.png')
         print(model.summary())
         return model
 
-    def train(self, x, y, epochs=150, period=10):
+    def train(self, x, y, epochs=100, period=10):
         print("TRAINING...")
         #sgd = optimizers.SGD(lr=0.09)
         adadelta = optimizers.Adadelta()

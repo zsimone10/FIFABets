@@ -43,13 +43,16 @@ def load_data(path):
     #data = data.drop([0], axis=0)
     return data
     #RETURN data.as_matrix()
+
 x = load_data('most_seasons_PCA_75_pct_13_components.csv')
 #print(x)
-y = load_data('data/labels_most_seasons.csv')
+y = load_data('olddata/labels_most_seasons.csv')
+
 
 x1 = load_data('recent_seasons_PCA_75_pct_13_components.csv')
 #print(x)
 y1 = load_data('data/labels_recent_seasons.csv')
+
 
 def parseData(x, y, c, resampling):
 ############

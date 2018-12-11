@@ -6,6 +6,6 @@ register(
 )
 
 register(
-    id='BetEnv-v1',
-    entry_point='env.env:BetEnv1',
+    id='DeepBetEnv-v0',
+    entry_point='env.deepenv:DeepBetEnv',
 )

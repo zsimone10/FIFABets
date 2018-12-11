@@ -36,7 +36,7 @@ def load_data(path):
     #data = data.drop([0], axis=0)
     return data
     #RETURN data.as_matrix()
-x = load_data('data/most_seasons_unnormalized.csv')
+x = load_data('data/most_seasons_PCA_75_pct_13_components.csv')
 #print(x)
 y = load_data('data/labels_most_seasons.csv')
 
@@ -65,13 +65,14 @@ resampled = pd.concat([draws_resampled, away_wins_resampled])
 #print(resampled)
 data = pd.concat([home_wins, resampled])
 
-
+print(x)
 y = data[["Home", "Draw", "Away"]]
-x = data.drop(["Unnamed: 0", "Home", "Draw", "Away"], axis=1)
-#print(x, y)
-y = y.drop([0], axis=0)
+x = data.drop([ "Home", "Draw", "Away"], axis=1)
+#x = x.drop(x.columns[0], axis=1)
+print(x, y)
+#y = y.drop([0], axis=0)
 #x = x.drop([0], axis=1)
-x = x.drop([0], axis=0)
+#x = x.drop([0], axis=0)
 #print(x, y)
 x, y = x.as_matrix(), y.as_matrix()
 ##############
@@ -92,7 +93,7 @@ print(le.classes_)
 #DETAILS:
 #
 #
-model = Network()
+model = Network(x.shape[1])
 
 if weights:
     model.load_weights(weights)
