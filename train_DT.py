@@ -18,6 +18,20 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import cross_val_score
 from sklearn import tree
 
+#most_seasons_PCA_99_pct_44_components.csv
+#recent_seasons_PCA_99_pct_44_components.csv
+
+#most_seasons_PCA_95_pct_34_components.csv
+#recent_seasons_PCA_95_pct_34_components.csv
+
+#most_seasons_PCA_90_pct_27_components.csv
+#recent_seasons_PCA_90_pct_27_components.csv
+
+#most_seasons_PCA_85_pct_21_components.csv
+#recent_seasons_PCA_85_pct_21_components.csv
+
+#most_seasons_PCA_75_pct_13_components.csv
+#recent_seasons_PCA_75_pct_13_components.csv
 
 seed = np.random.seed(7)
 
@@ -28,13 +42,13 @@ def load_data(path):
     #data = data.drop([0], axis=0)
     return data
     #RETURN data.as_matrix()
-x = load_data('data/most_seasons_unnormalized.csv')
+x = load_data('most_seasons_PCA_75_pct_13_components.csv')
 #print(x)
 y = load_data('data/labels_most_seasons.csv')
 
-x1 = load_data('data/labels_recent_seasons.csv')
+x1 = load_data('recent_seasons_PCA_75_pct_13_components.csv')
 #print(x)
-y1 = load_data('data/recent_seasons_unnormalized.csv')
+y1 = load_data('data/labels_recent_seasons.csv')
 
 def parseData(x, y, c, resampling):
 ############
@@ -163,6 +177,7 @@ dt = tree.DecisionTreeClassifier()
 
 dt.fit(scaledX_train, y_train1)
 
+#tree.export_graphviz(dt, out_file='tree.dot', class_names=["Home Win", "Draw", "Away Win"], leaves_parallel = True, )
 
 y_pred_train = dt.predict(scaledX_train)
 y_pred_test = dt.predict(scaledX_test)
