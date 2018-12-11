@@ -7,10 +7,11 @@ import numpy as np
 import pandas as pd
 import sys
 from joblib import dump, load
+from log_reg_network import LogReg
 
 
 # BetNet = Network()
-# BetNet.load_weights("weights/Adadelta/test9_400/weights-improvement-400-0.48.hdf5") #Most recent weights
+# BetNet.load_weights("weights/Adadelta/test9_400/weights-improvement-400-0.48.hdf5") #Most Stable weights
 
 print("LOADING BETTING POLICY...")
 
@@ -46,7 +47,9 @@ if MODEL_TYPE == "SVM":
     curr_model = load("SVM.joblib")
 elif MODEL_TYPE == "LR":
     print("LOADING LR...")
-
+    lr = LogReg()
+    lr.load_weights("weights/lr/weights-improvement-500-0.45.hdf5")
+    curr_model = lr
 elif MODEL_TYPE == "DT":
     print("LOADING DT...")
     curr_model = load("DT.joblib")
@@ -66,7 +69,11 @@ def generatePrediction(mt, curr_model, to_process):
         hardmax[0][temp_pred[0]] = 1
         prediction = hardmax[0]
     elif mt == "LR":
-        pass
+        net_pred = curr_model.model.predict(np.asarray(to_process))
+        idx = np.argmax(net_pred)
+        hardmax = np.zeros_like(net_pred[0])
+        hardmax[idx] = 1
+        prediction = hardmax
     elif mt == "DT":
         temp_pred = curr_model.predict(np.asarray(to_process))
         hardmax = np.zeros((1, 3))
@@ -87,10 +94,10 @@ def generatePrediction(mt, curr_model, to_process):
 
 #print(new_q_table)
 print("LOADING DATA...")
-x = pd.read_csv('data/recent_seasons_unnormalized.csv')
+x = pd.read_csv('olddata/recent_seasons_unnormalized.csv')
 x = x.drop([0], axis=0)
 x = x.drop(["Unnamed: 0"], axis=1)
-y = pd.read_csv('data/labels_recent_seasons.csv')
+y = pd.read_csv('olddata/labels_recent_seasons.csv')
 y = y.drop([0], axis=0)
 y = y.drop(["Unnamed: 0"], axis=1)
 #print( x, y)

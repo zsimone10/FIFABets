@@ -11,32 +11,57 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split, KFold, GridSearchCV
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score, label_ranking_average_precision_score
 import itertools
+from keras import regularizers
+
 
 np.random.seed(7)
 
 class Network:
-    def __init__(self):
-        self.model = self.create()
+    def __init__(self, data_dim):
+        self.model = self.create(data_dim)
 
-    def create(self):
+    def create(self, data_dim):
         print("BUILDING NETWORK...")
+        print("Data Dimension: ", data_dim)
 
         model = Sequential()
-        model.add(Dense(512, input_dim=74))
-        model.add(Activation('sigmoid'))
-        model.add(Dense(128))
-        model.add(Activation('sigmoid'))
-        model.add(Dense(128))
-        model.add(Activation('sigmoid'))
-        model.add(Dense(64))
-        model.add(Activation('sigmoid'))
-        model.add(Dense(3))
+
+        if data_dim < 50:
+            print("ADDING REGULARIZATION...")
+            model.add(
+                Dense(512, input_dim=data_dim))
+            model.add(Activation('sigmoid'))
+
+            model.add(
+                Dense(128))
+            model.add(Activation('sigmoid'))
+
+            model.add(
+                Dense(128))
+            model.add(Activation('sigmoid'))
+
+            model.add(
+                Dense(64, W_regularizer=regularizers.l2(0.01)))
+            model.add(Activation('sigmoid'))
+
+            model.add(Dense(3, activity_regularizer=regularizers.l2(0.01)))
+        else:
+            model.add(Dense(512, input_dim=data_dim))
+            model.add(Activation('sigmoid'))
+            model.add(Dense(128))
+            model.add(Activation('sigmoid'))
+            model.add(Dense(128))
+            model.add(Activation('sigmoid'))
+            model.add(Dense(64))
+            model.add(Activation('sigmoid'))
+            model.add(Dense(3))
+
         model.add(Activation('softmax'))
         plot_model(model, to_file='model.png')
         print(model.summary())
         return model
 
-    def train(self, x, y, epochs=500, period=400):
+    def train(self, x, y, epochs=150, period=10):
         print("TRAINING...")
         #sgd = optimizers.SGD(lr=0.09)
         adadelta = optimizers.Adadelta()
