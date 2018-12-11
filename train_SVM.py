@@ -21,6 +21,21 @@ from sklearn.model_selection import cross_val_score
 from joblib import dump, load
 
 
+#most_seasons_PCA_99_pct_44_components.csv
+#recent_seasons_PCA_99_pct_44_components.csv
+
+#most_seasons_PCA_95_pct_34_components.csv
+#recent_seasons_PCA_95_pct_34_components.csv
+
+#most_seasons_PCA_90_pct_27_components.csv
+#recent_seasons_PCA_90_pct_27_components.csv
+
+#most_seasons_PCA_85_pct_21_components.csv
+#recent_seasons_PCA_85_pct_21_components.csv
+
+#most_seasons_PCA_75_pct_13_components.csv
+#recent_seasons_PCA_75_pct_13_components.csv
+
 seed = np.random.seed(7)
 
 print("LOADING DATASETS")
@@ -30,13 +45,15 @@ def load_data(path):
     #data = data.drop([0], axis=0)
     return data
     #RETURN data.as_matrix()
-x = load_data('olddata/most_seasons_unnormalized.csv')
+
+x = load_data('most_seasons_PCA_99_pct_44_components.csv')
 #print(x)
 y = load_data('olddata/labels_most_seasons.csv')
 
-x1 = load_data('olddata/labels_recent_seasons.csv')
+
+x1 = load_data('recent_seasons_PCA_99_pct_44_components.csv')
 #print(x)
-y1 = load_data('olddata/recent_seasons_unnormalized.csv')
+y1 = load_data('data/labels_recent_seasons.csv')
 
 def parseData(x, y, c, resampling):
 ############
@@ -167,7 +184,7 @@ gammas = [0.001, 0.01, 0.1, 1]
 param_grid = {'C': Cs, 'gamma' : gammas}
 #for C in Cs:
 #    for gamma in gammas:
-svm = SVC(kernel='poly', probability=False, verbose = False, tol= 1e-6, cache_size=10000, C = 1, max_iter = 100000)
+svm = SVC(kernel='linear', probability=False, verbose = False, tol= 1e-6, cache_size=10000, C = 1, max_iter = 100000)
 
 #all_accuracies = cross_val_score(estimator=svm, X=scaledX_train, y=y_train1, cv=5)
 
@@ -210,7 +227,7 @@ cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
 #print('Best Gamma:', grid_search.best_estimator_.gamma)
 #print(best_result)
 
-
+'''
 def plot_confusion_matrix( cm, classes,
                               normalize=False,
                               cmap=plt.cm.Blues):
@@ -242,11 +259,18 @@ def plot_confusion_matrix( cm, classes,
         plt.ylabel('True label')
         plt.xlabel('Predicted label')
         plt.show()
+'''
+#plot_confusion_matrix(cnf_matrix_train, ["Home Win", "Draw", "Away Win"])
+#plot_confusion_matrix(cnf_matrix_test, ["Home Win", "Draw", "Away Win"])
+#plot_confusion_matrix(cnf_matrix_testR, ["Home Win", "Draw", "Away Win"])
 
-plot_confusion_matrix(cnf_matrix_train, ["Home Win", "Draw", "Away Win"])
-plot_confusion_matrix(cnf_matrix_test, ["Home Win", "Draw", "Away Win"])
-plot_confusion_matrix(cnf_matrix_testR, ["Home Win", "Draw", "Away Win"])
+print(cnf_matrix_train)
+print(cnf_matrix_test)
+print(cnf_matrix_testR)
 
-print(classification_report(y_train1, y_pred_train))
-print(classification_report(y_test1, y_pred_test))
-print(classification_report(y_testRe, y_pred_testR))
+print(scaledX_train.shape)
+print(x_test.shape)
+
+#print(classification_report(y_train1, y_pred_train))
+#print(classification_report(y_test1, y_pred_test))
+#print(classification_report(y_testRe, y_pred_testR))
