@@ -91,9 +91,9 @@ class BetEnv(Env):
         return (self.match, self.cash)
 
     def getSeason(self, filename):
-        x = pd.read_csv('olddata/recent_seasons_unnormalized.csv')
+        x = pd.read_csv('data/recent_seasons_PCA_99_pct_44_components.csv')
         x = x.drop([0], axis=0)
-        x = x.drop(["Unnamed: 0"], axis=1)
+        #x = x.drop(["Unnamed: 0"], axis=1)
         y = pd.read_csv('olddata/labels_recent_seasons.csv')
         y = y.drop([0], axis=0)
         y = y.drop(["Unnamed: 0"], axis=1)

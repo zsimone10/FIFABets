@@ -46,14 +46,17 @@ def load_data(path):
     return data
     #RETURN data.as_matrix()
 
-x = load_data('most_seasons_PCA_99_pct_44_components.csv')
+x = load_data('data/most_seasons_PCA_99_pct_44_components.csv')
+
 #print(x)
-y = load_data('olddata/labels_most_seasons.csv')
+y = load_data('data/labels_most_seasons.csv')
 
 
-x1 = load_data('recent_seasons_PCA_99_pct_44_components.csv')
+
+x1 = load_data('data/recent_seasons_PCA_99_pct_44_components.csv')
+
 #print(x)
-y1 = load_data('data/labels_recent_seasons.csv')
+y1 = load_data('olddata/labels_recent_seasons.csv')
 
 def parseData(x, y, c, resampling):
 ############
@@ -184,7 +187,7 @@ gammas = [0.001, 0.01, 0.1, 1]
 param_grid = {'C': Cs, 'gamma' : gammas}
 #for C in Cs:
 #    for gamma in gammas:
-svm = SVC(kernel='linear', probability=False, verbose = False, tol= 1e-6, cache_size=10000, C = 1, max_iter = 100000)
+svm = SVC(kernel='rbf', probability=False, verbose = False, tol= 1e-6, cache_size=10000, C = 1, max_iter = 100000)
 
 #all_accuracies = cross_val_score(estimator=svm, X=scaledX_train, y=y_train1, cv=5)
 
@@ -264,7 +267,7 @@ def plot_confusion_matrix( cm, classes,
 #plot_confusion_matrix(cnf_matrix_test, ["Home Win", "Draw", "Away Win"])
 #plot_confusion_matrix(cnf_matrix_testR, ["Home Win", "Draw", "Away Win"])
 
-dump(svm, 'svm.joblib') 
+
 
 print(cnf_matrix_train)
 print(cnf_matrix_test)

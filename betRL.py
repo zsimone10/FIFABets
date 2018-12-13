@@ -41,26 +41,39 @@ if len(sys.argv) > 1:
 curr_model = None
 if MODEL_TYPE == "SVM":
     print("LOADING SVM...")
-    curr_model = load("SVM.joblib")
+    curr_model = load("svm.joblib")
 elif MODEL_TYPE == "LR":
     print("LOADING LR...")
-    lr = LogReg()
-    lr.load_weights("weights/lr/weights-improvement-500-0.45.hdf5")
+    lr = LogReg(env.matches.shape[1])
+    lr.load_weights("weights/lr/batch_run_1/99weights-improvement-100-0.49.hdf5")
     curr_model = lr
 elif MODEL_TYPE == "DT":
     print("LOADING DT...")
-    curr_model = load("DT.joblib")
+    curr_model = load("dt.joblib")
+elif MODEL_TYPE == "GB":
+    print("LOADING GB...")
+    curr_model = load("gb.joblib")
+elif MODEL_TYPE == "RF":
+    print("LOADING RF...")
+    curr_model = load("rfc.joblib")
+elif MODEL_TYPE == "NB":
+    print("LOADING NB...")
+    curr_model = load("nb.joblib")
+elif MODEL_TYPE == "AB":
+    print("LOADING AB...")
+    curr_model = load("ab.joblib")
 else:
     print("LOADING NN...")
-    BetNet = Network()
-    BetNet.load_weights("weights/Adadelta/test9_400/weights-improvement-400-0.48.hdf5")  # Most recent weights
+    BetNet = Network(env.matches.shape[1])
+    BetNet.load_weights("weights/Adadelta/test13_100iter_reglast2/weights-improvement-100-0.52.hdf5")  # Most recent weights
     curr_model = BetNet
+
 ###############################################################################
 
 #GETS THE PREDICTION VEC GIVEN MODEL
 def generatePrediction(mt, curr_model, to_process):
     prediction = None
-    if mt == "SVM":
+    if mt == "SVM" or mt == "DT" or mt == "GB" or mt == "NB" or mt == "RF" or mt=="AB":
         temp_pred = curr_model.predict(np.asarray([np.transpose(to_process[0])]))
         hardmax = np.zeros((1,3))
         hardmax[0][temp_pred[0]] = 1

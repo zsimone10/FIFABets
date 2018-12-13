@@ -51,12 +51,19 @@ class DeepBetEnv(Env):
             self.cash -= abs(action[0])
 
         #reward = self.cash - lastCash
+        if self.cash - lastCash == 0:
+            reward = -5
+        elif self.cash - lastCash < 0:
+            reward = -10
+        else:
+            reward = 10
+
         if self.cash >= 100 or  self.match_index == self.matches.shape[0]-1: #we are done if made 100 bucks or lost all money or the season is over
             done = True
             reward = self.cash
         if self.cash <= 0:
             done = True
-            reward = -100
+            reward = -10000
 
 
         #Update the State

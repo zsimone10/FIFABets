@@ -44,14 +44,14 @@ def load_data(path):
     return data
     #RETURN data.as_matrix()
 
-x = load_data('most_seasons_PCA_75_pct_13_components.csv')
+x = load_data('data/most_seasons_PCA_99_pct_44_components.csv')
 #print(x)
-y = load_data('olddata/labels_most_seasons.csv')
+y = load_data('data/labels_most_seasons.csv')
 
 
-x1 = load_data('recent_seasons_PCA_75_pct_13_components.csv')
+x1 = load_data('data/recent_seasons_PCA_99_pct_44_components.csv')
 #print(x)
-y1 = load_data('data/labels_recent_seasons.csv')
+y1 = load_data('olddata/labels_recent_seasons.csv')
 
 
 def parseData(x, y, c, resampling):
@@ -203,7 +203,7 @@ cnf_matrix_test = confusion_matrix(y_test1, y_pred_test)
 cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
 
 
-dump(dt, 'dt.joblib')
+#dump(dt, 'dt.joblib')
 
 
 
