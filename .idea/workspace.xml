@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7edca93e-9199-4116-8fbd-ddc77cd0a597" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoBetter.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutoBetter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DT.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/DT.joblib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SVM.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/SVM.joblib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/betRL.py" beforeDir="false" afterPath="$PROJECT_DIR$/betRL.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dqn.py" beforeDir="false" afterPath="$PROJECT_DIR$/dqn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/deepenv.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/deepenv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model.png" beforeDir="false" afterPath="$PROJECT_DIR$/model.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/network.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/q_table.json" beforeDir="false" afterPath="$PROJECT_DIR$/q_table.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/naive_better.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Data.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fill_normalize_PCA.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/fill_normalize_PCA.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_DT.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_DT.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_GB.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_GB.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_NB.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_NB.py" afterDir="false" />
@@ -45,7 +36,7 @@
           <entry key="ipynb" value="6" />
           <entry key="json" value="3" />
           <entry key="png" value="2" />
-          <entry key="py" value="72" />
+          <entry key="py" value="76" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -55,7 +46,7 @@
           <entry key="Image" value="2" />
           <entry key="JSON" value="3" />
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="72" />
+          <entry key="Python" value="76" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -76,65 +67,11 @@
     <splitter split-orientation="horizontal" split-proportion="0.5562827">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/AutoBetter.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="76" column="25" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#0#11#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/network.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="453">
-                  <caret line="40" column="3" lean-forward="true" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
-                  <folding>
-                    <element signature="e#0#35#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/model.png">
-              <provider selected="true" editor-type-id="images" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/env/env.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1290">
-                  <caret line="93" column="69" selection-start-line="93" selection-start-column="69" selection-end-line="93" selection-end-column="69" />
-                  <folding>
-                    <element signature="e#0#27#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lr_pca_test.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2235">
-                  <caret line="164" column="42" selection-start-line="164" selection-start-column="42" selection-end-line="164" selection-end-column="42" />
-                  <folding>
-                    <element signature="e#0#35#0" expanded="true" />
-                    <marker date="1544495252364" expanded="true" signature="689:690" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/train_SVM.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="20" column="29" selection-end-line="21" />
+                <state relative-caret-position="435">
+                  <caret line="48" selection-start-line="48" selection-end-line="58" selection-end-column="51" />
                   <folding>
                     <element signature="e#0#35#0" expanded="true" />
                   </folding>
@@ -142,11 +79,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/train_NB.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="18" column="29" selection-end-line="19" />
+                <state relative-caret-position="619">
+                  <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -155,24 +92,48 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/betRL.py">
+            <entry file="file://$PROJECT_DIR$/train_adaBoost.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="630">
-                  <caret line="60" column="23" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+                <state relative-caret-position="315">
+                  <caret line="21" selection-start-line="21" selection-end-line="21" />
                   <folding>
-                    <element signature="e#0#10#0" expanded="true" />
+                    <element signature="e#0#18#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/train.py">
+            <entry file="file://$PROJECT_DIR$/train_DT.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+                <state relative-caret-position="268">
+                  <caret line="46" selection-start-line="46" selection-end-line="53" selection-end-column="51" />
                   <folding>
-                    <element signature="e#0#35#0" expanded="true" />
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/train_GB.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="315">
+                  <caret line="21" selection-start-line="21" selection-end-line="21" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/train_RFC.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="15">
+                  <caret line="21" selection-start-line="21" selection-end-line="21" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -265,8 +226,6 @@
         <option value="$PROJECT_DIR$/log_reg_network.py" />
         <option value="$PROJECT_DIR$/lr_pca_test.py" />
         <option value="$PROJECT_DIR$/train_DT.py" />
-        <option value="$PROJECT_DIR$/train_SVM.py" />
-        <option value="$PROJECT_DIR$/train_NB.py" />
         <option value="$PROJECT_DIR$/train_GB.py" />
         <option value="$PROJECT_DIR$/train_RFC.py" />
         <option value="$PROJECT_DIR$/env/env.py" />
@@ -277,6 +236,8 @@
         <option value="$PROJECT_DIR$/AutoBetter.py" />
         <option value="$PROJECT_DIR$/env/deepenv.py" />
         <option value="$PROJECT_DIR$/dqn.py" />
+        <option value="$PROJECT_DIR$/train_SVM.py" />
+        <option value="$PROJECT_DIR$/train_NB.py" />
       </list>
     </option>
   </component>
@@ -514,34 +475,6 @@
     <entry file="file://$PROJECT_DIR$/train_nn.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_GB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train_RFC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2021">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train_adaBoost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train_DT.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="46" selection-start-line="46" selection-end-line="53" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dqnmodel.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -565,26 +498,6 @@
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <marker date="1544495252364" expanded="true" signature="689:690" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train_SVM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="29" selection-end-line="21" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train_NB.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="29" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -619,16 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AutoBetter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="76" column="25" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/env/deepenv.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="497">
@@ -646,6 +549,76 @@
           <folding>
             <element signature="e#0#18#0" expanded="true" />
             <marker date="1544673886894" expanded="true" signature="3160:3366" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutoBetter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="76" column="25" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_SVM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="48" selection-start-line="48" selection-end-line="58" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_RFC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_GB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_DT.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="46" selection-start-line="46" selection-end-line="53" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_adaBoost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_NB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -46,7 +46,7 @@ def load_data(path):
 
 x = load_data('data/most_seasons_PCA_99_pct_44_components.csv')
 #print(x)
-y = load_data('olddata/labels_most_seasons.csv')
+y = load_data('data/labels_most_seasons.csv')
 
 
 x1 = load_data('data/recent_seasons_PCA_99_pct_44_components.csv')
@@ -203,7 +203,7 @@ cnf_matrix_test = confusion_matrix(y_test1, y_pred_test)
 cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
 
 
-dump(dt, 'dt.joblib')
+#dump(dt, 'dt.joblib')
 
 
 

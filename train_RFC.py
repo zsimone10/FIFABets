@@ -178,7 +178,7 @@ print(le.classes_)
 
 #train Decision Tree
 
-rfc = RandomForestClassifier()
+rfc = RandomForestClassifier(n_estimators = 200, max_depth = 28)
 
 rfc.fit(scaledX_train, y_train1)
 

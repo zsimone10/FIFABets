@@ -208,4 +208,4 @@ print(cnf_matrix_train)
 print(cnf_matrix_test)
 print(cnf_matrix_testR)
 
-dump(gbc, 'gb.joblib') 
+dump(gbc, 'gb.joblib')

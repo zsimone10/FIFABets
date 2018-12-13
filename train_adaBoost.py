@@ -45,12 +45,20 @@ def load_data(path):
     #data = data.drop([0], axis=0)
     return data
     #RETURN data.as_matrix()
+<<<<<<< HEAD
 x = load_data('data/most_seasons_PCA_99_pct_44_components.csv')
+=======
+x = load_data('most_seasons_unnormalized.csv')
+>>>>>>> 43089473fb4bff2eaca4ba3b81df4e3632f368df
 #print(x)
 y = load_data('olddata/labels_most_seasons.csv')
 
+<<<<<<< HEAD
 
 x1 = load_data('data/recent_seasons_PCA_99_pct_44_components.csv')
+=======
+x1 = load_data('recent_seasons_unnormalized.csv')
+>>>>>>> 43089473fb4bff2eaca4ba3b81df4e3632f368df
 #print(x)
 y1 = load_data('olddata/labels_recent_seasons.csv')
 
@@ -206,4 +214,8 @@ print(cnf_matrix_train)
 print(cnf_matrix_test)
 print(cnf_matrix_testR)
 
+<<<<<<< HEAD
 dump(abc, 'ab.joblib')
+=======
+dump(abc, 'adaBoost.joblib')
+>>>>>>> 43089473fb4bff2eaca4ba3b81df4e3632f368df
