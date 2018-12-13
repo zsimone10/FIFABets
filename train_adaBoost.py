@@ -44,11 +44,11 @@ def load_data(path):
     #data = data.drop([0], axis=0)
     return data
     #RETURN data.as_matrix()
-x = load_data('most_seasons_PCA_75_pct_13_components.csv')
+x = load_data('most_seasons_unnormalized.csv')
 #print(x)
 y = load_data('data/labels_most_seasons.csv')
 
-x1 = load_data('recent_seasons_PCA_75_pct_13_components.csv')
+x1 = load_data('recent_seasons_unnormalized.csv')
 #print(x)
 y1 = load_data('data/labels_recent_seasons.csv')
 
@@ -204,4 +204,4 @@ print(cnf_matrix_train)
 print(cnf_matrix_test)
 print(cnf_matrix_testR)
 
-dump(abc, 'adaBoost.joblib') 
+dump(abc, 'adaBoost.joblib')
