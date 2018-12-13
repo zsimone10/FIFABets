@@ -36,7 +36,7 @@ def load_data(path):
     #data = data.drop([0], axis=0)
     return data
     #RETURN data.as_matrix()
-x = load_data('data/most_seasons_PCA_75_pct_13_components.csv')
+x = load_data('data/most_seasons_PCA_99_pct_44_components.csv')
 #print(x)
 y = load_data('data/labels_most_seasons.csv')
 

@@ -18,6 +18,8 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import cross_val_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import tree
+from joblib import dump, load
+
 
 #most_seasons_PCA_99_pct_44_components.csv
 #recent_seasons_PCA_99_pct_44_components.csv
@@ -44,13 +46,14 @@ def load_data(path):
     #data = data.drop([0], axis=0)
     return data
     #RETURN data.as_matrix()
-x = load_data('most_seasons_PCA_75_pct_13_components.csv')
+x = load_data('data/most_seasons_PCA_99_pct_44_components.csv')
 #print(x)
-y = load_data('data/labels_most_seasons.csv')
+y = load_data('olddata/labels_most_seasons.csv')
 
-x1 = load_data('recent_seasons_PCA_75_pct_13_components.csv')
+
+x1 = load_data('data/recent_seasons_PCA_99_pct_44_components.csv')
 #print(x)
-y1 = load_data('data/labels_recent_seasons.csv')
+y1 = load_data('olddata/labels_recent_seasons.csv')
 
 def parseData(x, y, c, resampling):
 ############

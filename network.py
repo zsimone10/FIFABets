@@ -57,8 +57,9 @@ class Network:
             model.add(Dense(3))
 
         model.add(Activation('softmax'))
-        plot_model(model, to_file='model.png')
+        plot_model(model, to_file='model.png', show_shapes=True, show_layer_names=False)
         print(model.summary())
+        #model.save('network_model.h5')
         return model
 
     def train(self, x, y, epochs=150, period=10):
