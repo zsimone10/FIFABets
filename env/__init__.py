@@ -9,3 +9,8 @@ register(
     id='DeepBetEnv-v0',
     entry_point='env.deepenv:DeepBetEnv',
 )
+
+register(
+    id='FA_Env-v0',
+    entry_point='env.faenv:FA_Env',
+)

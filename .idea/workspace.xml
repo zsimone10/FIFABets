@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7edca93e-9199-4116-8fbd-ddc77cd0a597" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AutoBetBatch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoBetter.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutoBetter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DT.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/DT.joblib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SVM.joblib" beforeDir="false" afterPath="$PROJECT_DIR$/SVM.joblib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/betRL.py" beforeDir="false" afterPath="$PROJECT_DIR$/betRL.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dqn.py" beforeDir="false" afterPath="$PROJECT_DIR$/dqn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/deepenv.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/deepenv.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lr_pca_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/lr_pca_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model.png" beforeDir="false" afterPath="$PROJECT_DIR$/model.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/q_table.json" beforeDir="false" afterPath="$PROJECT_DIR$/q_table.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_DT.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_DT.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_SVM.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_SVM.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/QL_FA.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/env/faenv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plotting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/env/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/naive_better.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/naive_better.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +35,7 @@
           <entry key="ipynb" value="8" />
           <entry key="json" value="3" />
           <entry key="md" value="1" />
-          <entry key="png" value="2" />
+          <entry key="png" value="3" />
           <entry key="py" value="100" />
         </counts>
       </usages-collector>
@@ -49,7 +43,7 @@
         <counts>
           <entry key="CSV" value="6" />
           <entry key="IPNB" value="8" />
-          <entry key="Image" value="2" />
+          <entry key="Image" value="3" />
           <entry key="JSON" value="3" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="6" />
@@ -89,8 +83,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AutoBetBatch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="227" column="36" selection-start-line="227" selection-start-column="36" selection-end-line="227" selection-end-column="36" />
+            <state relative-caret-position="453">
+              <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -139,18 +133,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="708">
               <caret line="207" selection-start-line="207" selection-end-line="207" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/train_NB.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="783">
-              <caret line="243" selection-start-line="243" selection-end-line="243" selection-end-column="22" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -355,11 +337,11 @@
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1947497" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1947497" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32941177" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -471,9 +453,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/dqnmodel.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/train_RFC.py">
@@ -652,10 +631,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/model.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/AutoBetBatch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="227" column="36" selection-start-line="227" selection-start-column="36" selection-end-line="227" selection-end-column="36" />
+        <state relative-caret-position="453">
+          <caret line="204" lean-forward="true" selection-start-line="204" selection-end-line="204" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
