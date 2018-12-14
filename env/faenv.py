@@ -6,8 +6,9 @@ from six import StringIO
 import sys
 import math
 import pandas as pd
+from network import Network
 
-class BetEnv(Env):
+class FA_Env(Env):
 
     def __init__(self):
         self.matches, self.results, self.odds = self.getSeason('recent_seasons_filled_unnormalized.csv', 'recent_seasons_PCA_99_pct_44_components.csv')
@@ -20,11 +21,22 @@ class BetEnv(Env):
 
         self.cash = 50
 
-        self.action_space = spaces.Tuple(spaces.Discrete(self.cash + 1), spaces.Discrete(3)))
+        self.action_space = spaces.Tuple((spaces.Discrete(math.floor(self.cash)), spaces.Discrete(3)))
 
         self.observation = 0
 
+        BetNet = Network(self.matches.shape[1])
+        BetNet.load_weights("weights-improvement-100-0.52.hdf5")
+
+        self.predictions = np.zeros(self.results.shape)
+        for r in range(self.matches.shape[0]):
+            match = self.matches[r]
+            self.predictions[r] = BetNet.model.predict(np.array([match]))[0]
+
+
     def step(self, action):
+        print(self.action_space)
+        print(action)
         assert self.action_space.contains(action)
         bet_amount, bet_team = action
 
@@ -33,13 +45,13 @@ class BetEnv(Env):
         done = False
         lastCash = self.cash
         curr_odds = self.odds[self.match_index][action[1]]
-        if bet_team == match.winner:
+        if bet_team == self.match_winner:
             self.cash += bet_amount * (curr_odds - 1)
         else:
             self.cash -= bet_amount
 
         reward = self.cash - lastCash
-        if self.cash <= 0 or self.match_index == self.matches.shape[0]-1:
+        if self.cash <= 1 or self.match_index == self.matches.shape[0]-1:
             done = True
             reward = self.cash
 
@@ -51,61 +63,39 @@ class BetEnv(Env):
         if not done:
             self.match_index += 1
             self.match = self.matches[self.match_index]
+            self.match_odds = self.odds[self.match_index]
+            self.match_predictions = self.predictions[self.match_index]
             self.match_winner = self.getMatchWinner()
-            self.action_space = spaces.Tuple(spaces.Discrete(self.cash + 1), spaces.Discrete(3)))
+            self.action_space = spaces.Tuple((spaces.Discrete(self.cash + 1), spaces.Discrete(3)))
 
-        return (self.match, self.cash), reward, done, {"cash": self.cash}
+        return (self.match, self.match_predictions, self.match_odds, self.cash), reward, done, {"cash": self.cash}
 
 
     def reset(self):
         self.match_index = 0
         self.match = self.matches[self.match_index]
+        self.match_odds = self.odds[self.match_index]
+        self.match_predictions = self.predictions[self.match_index]
         self.match_winner = self.getMatchWinner()
 
         self.cash = 50
         self.observation = 0
         self.action_space = spaces.Tuple((spaces.Discrete(self.cash + 1), spaces.Discrete(3)))
-        odds = match.getOdds()
-        win_probs = match.getWinProbs()
 
-        return (self.match, self.cash)
+        return (self.match, self.match_predictions, self.match_odds, self.cash)
 
     def getSeason(self, match_source, NN_train_source):
-        home_odds_labels = ['B365H', 'BWH', 'IWH', 'LBH', 'PSH', 'WHH', 'SJH', 'VCH', 'GBH', 'BSH']
-        draw_odds_labels = ['B365D', 'BWD', 'IWD', 'LBD', 'PSD', 'WHD', 'SJD', 'VCD', 'GBD', 'BSD']
-        away_odds_labels = ['B365A', 'BWA', 'IWA', 'LBA', 'PSA', 'WHA', 'SJA', 'VCA', 'GBA', 'BSA']
-        all_odds_labels = [home_odds_labels, draw_odds_labels, away_odds_labels]
-        odd_source = pd.read_csv("data/recent_seasons_filled_unnormalized.csv")
-        # print(new_q_table)
+
+        top_odds_per_match = pd.read_csv("data/recent_seasons_max_odds.csv")
         print("LOADING DATA...")
         x = pd.read_csv('data/recent_seasons_PCA_99_pct_44_components.csv')
-        # make odds list
-        home_odds = odd_source[home_odds_labels]
-        draw_odds = odd_source[draw_odds_labels]
-        away_odds = odd_source[away_odds_labels]
-        all_odds = [home_odds, draw_odds, away_odds]
-        top_odds_per_match = []
-        for i in range(0, x.shape[0]):
-            match = []
-            for j in range(0, 3):
-                odds = all_odds[j].loc[i]
-                # print(odds)
-                max_odd = np.amax(odds)
-                # print(max_odd)
-                match.append(max_odd)
-            top_odds_per_match.append(match)
-        # print(top_odds_per_match, len(top_odds_per_match))
 
-        x = x.drop([0], axis=0)
-        #x = x.drop(["Unnamed: 0"], axis=1)
-        y = pd.read_csv('olddata/labels_recent_seasons.csv')
-        y = y.drop([0], axis=0)
-        y = y.drop(["Unnamed: 0"], axis=1)
+
+        y = pd.read_csv('data/labels_recent_seasons.csv')
         #print( x, y)
         x = x.as_matrix()
-        x = x[0:319]
         y = y.as_matrix()
-        y = y[0:319]
+        top_odds_per_match = top_odds_per_match.as_matrix()
         return x, y, top_odds_per_match
 
 
