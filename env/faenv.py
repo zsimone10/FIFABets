@@ -21,7 +21,7 @@ class FA_Env(Env):
 
         self.cash = 50
 
-        self.action_space = spaces.Tuple((spaces.Discrete(math.floor(self.cash)), spaces.Discrete(3)))
+        self.action_space = spaces.Tuple((spaces.Discrete(math.floor(self.cash + 1)), spaces.Discrete(3)))
 
         self.observation = 0
 
@@ -35,8 +35,6 @@ class FA_Env(Env):
 
 
     def step(self, action):
-        print(self.action_space)
-        print(action)
         assert self.action_space.contains(action)
         bet_amount, bet_team = action
 
@@ -44,16 +42,16 @@ class FA_Env(Env):
         reward = 0
         done = False
         lastCash = self.cash
-        curr_odds = self.odds[self.match_index][action[1]]
+        curr_odds = self.odds[self.match_index][bet_team]
         if bet_team == self.match_winner:
             self.cash += bet_amount * (curr_odds - 1)
         else:
             self.cash -= bet_amount
 
         reward = self.cash - lastCash
-        if self.cash <= 1 or self.match_index == self.matches.shape[0]-1:
+        if self.cash <= 1 or self.match_index >= self.matches.shape[0]-1:
             done = True
-            reward = self.cash
+            # reward = self.cash
 
 
         #Update the State
@@ -66,9 +64,9 @@ class FA_Env(Env):
             self.match_odds = self.odds[self.match_index]
             self.match_predictions = self.predictions[self.match_index]
             self.match_winner = self.getMatchWinner()
-            self.action_space = spaces.Tuple((spaces.Discrete(self.cash + 1), spaces.Discrete(3)))
+            self.action_space = spaces.Tuple((spaces.Discrete(math.floor(self.cash + 1)), spaces.Discrete(3)))
 
-        return (self.match, self.match_predictions, self.match_odds, self.cash), reward, done, {"cash": self.cash}
+        return (self.match_predictions, self.match_odds, self.cash), reward, done, {"cash": self.cash}
 
 
     def reset(self):
@@ -82,7 +80,7 @@ class FA_Env(Env):
         self.observation = 0
         self.action_space = spaces.Tuple((spaces.Discrete(self.cash + 1), spaces.Discrete(3)))
 
-        return (self.match, self.match_predictions, self.match_odds, self.cash)
+        return (self.match_predictions, self.match_odds, self.cash)
 
     def getSeason(self, match_source, NN_train_source):
 
