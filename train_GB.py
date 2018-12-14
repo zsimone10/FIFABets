@@ -199,10 +199,46 @@ print("gbc on Test:", accuracy_test*100)
 print("gbc on Recent Test:", accuracy_testR*100)
 
 
+def plot_confusion_matrix(cm, classes,
+                          normalize=False,
+                          cmap=plt.cm.Blues):
+    """
+    This function prints and plots the confusion matrix.
+    Normalization can be applied by setting `normalize=True`.
+    """
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+        title = 'Normalized confusion matrix'
+    else:
+        title = 'Confusion matrix'
+
+        plt.imshow(cm, interpolation='nearest', cmap=cmap)
+        plt.title(title)
+        plt.colorbar()
+        tick_marks = np.arange(len(classes))
+        plt.xticks(tick_marks, classes, rotation=45)
+        plt.yticks(tick_marks, classes)
+
+        fmt = '.2f' if normalize else 'd'
+        thresh = cm.max() / 2.
+        for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+            plt.text(j, i, format(cm[i, j], fmt),
+                     horizontalalignment="center",
+                     color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+    plt.show()
+
 
 cnf_matrix_train = confusion_matrix(y_train1, y_pred_train)
 cnf_matrix_test = confusion_matrix(y_test1, y_pred_test)
 cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
+
+
+plot_confusion_matrix(cnf_matrix_testR ,["Home Win", "Draw", "Away Win"])
+
 
 print(cnf_matrix_train)
 print(cnf_matrix_test)
