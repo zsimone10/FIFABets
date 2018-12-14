@@ -115,13 +115,33 @@ def generatePrediction(mt, curr_model, to_process):
     #print(prediction)
     return prediction
 
+home_odds_labels = ['B365H', 'BWH', 'IWH', 'LBH', 'PSH', 'WHH', 'SJH', 'VCH', 'GBH', 'BSH']
+draw_odds_labels = ['B365D', 'BWD', 'IWD', 'LBD', 'PSD', 'WHD', 'SJD', 'VCD', 'GBD', 'BSD']
+away_odds_labels = ['B365A', 'BWA', 'IWA', 'LBA', 'PSA', 'WHA', 'SJA', 'VCA', 'GBA', 'BSA']
+all_odds_labels = [home_odds_labels, draw_odds_labels, away_odds_labels]
 
 
 
-
+odd_source = pd.read_csv("data/recent_seasons_filled_unnormalized.csv")
 #print(new_q_table)
 print("LOADING DATA...")
-x = pd.read_csv('data/recent_seasons_filled_unnormalized.csv')
+x = pd.read_csv('data/recent_seasons_PCA_99_pct_44_components.csv')
+#make odds list
+home_odds = odd_source[home_odds_labels]
+draw_odds = odd_source[draw_odds_labels]
+away_odds = odd_source[away_odds_labels]
+all_odds = [home_odds, draw_odds, away_odds]
+top_odds_per_match = []
+for i in range(0, x.shape[0]):
+    match = []
+    for j in range(0, 3):
+        odds = all_odds[j].loc[i]
+        #print(odds)
+        max_odd = np.amax(odds)
+        #print(max_odd)
+        match.append(max_odd)
+    top_odds_per_match.append(match)
+#print(top_odds_per_match, len(top_odds_per_match))
 
 x = x.drop([0], axis=0)
 #x = x.drop(["Unnamed: 0"], axis=1)
@@ -150,7 +170,8 @@ for i in range(0, x.shape[0]):
 
     pred = generatePrediction(MODEL_TYPE, curr_model, [ex])
 
-    action, pred = (int(pred[0][0]), np.argmax(pred[1])), pred[1]
+    if MODEL_TYPE == "DQN":
+        action, pred = (int(pred[0][0]), np.argmax(pred[1])), pred[1]
 
 
     #print(action, pred)
@@ -167,13 +188,15 @@ for i in range(0, x.shape[0]):
             print("set action")
             action = max(actions.items(), key=operator.itemgetter(1))[0]
         else:
-            action = (1, np.argmax(pred))
-    print(cash, action)
+            action = ( cash // 10, np.argmax(pred))
+
         #print(action[1], np.argmax(y[i]))
 
 
+    odds = top_odds_per_match[i][action[1]]
+    print(cash, action, odds, top_odds_per_match[i])
     if action[1] == np.argmax(y[i]):
-        cash += abs(action[0])
+        cash += (round(abs(action[0])*odds - abs(action[0])))
     else:
         cash -= abs(action[0])
     #cash += action
