@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7edca93e-9199-4116-8fbd-ddc77cd0a597" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/naive_better.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Data.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fill_normalize_PCA.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/fill_normalize_PCA.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_DT.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_DT.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutoBetter.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutoBetter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lr_pca_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/lr_pca_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/network.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/predict.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_GB.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_GB.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_NB.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_NB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_RFC.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_RFC.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_SVM.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_SVM.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train_adaBoost.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_adaBoost.py" afterDir="false" />
     </list>
@@ -36,7 +36,7 @@
           <entry key="ipynb" value="6" />
           <entry key="json" value="3" />
           <entry key="png" value="2" />
-          <entry key="py" value="76" />
+          <entry key="py" value="87" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -46,32 +46,44 @@
           <entry key="Image" value="2" />
           <entry key="JSON" value="3" />
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="76" />
+          <entry key="Python" value="87" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="14" />
-          <entry key="py" value="17143" />
+          <entry key="py" value="17388" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="14" />
-          <entry key="Python" value="17143" />
+          <entry key="Python" value="17388" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5562827">
+    <splitter split-orientation="horizontal" split-proportion="0.6380368">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/train_SVM.py">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/AutoBetter.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="435">
-                  <caret line="48" selection-start-line="48" selection-end-line="58" selection-end-column="51" />
+                <state relative-caret-position="664">
+                  <caret line="175" column="30" lean-forward="true" selection-start-line="175" selection-start-column="30" selection-end-line="175" selection-end-column="30" />
+                  <folding>
+                    <element signature="e#0#11#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/network.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="634">
+                  <caret line="145" column="53" selection-start-line="145" selection-start-column="53" selection-end-line="145" selection-end-column="53" />
                   <folding>
                     <element signature="e#0#35#0" expanded="true" />
                   </folding>
@@ -79,59 +91,23 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/train.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-265">
+                  <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+                  <folding>
+                    <element signature="e#0#35#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/train_NB.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="619">
-                  <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/train_adaBoost.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" selection-start-line="21" selection-end-line="21" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/train_DT.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="268">
-                  <caret line="46" selection-start-line="46" selection-end-line="53" selection-end-column="51" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/train_GB.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" selection-start-line="21" selection-end-line="21" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/train_RFC.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="21" selection-start-line="21" selection-end-line="21" />
+                <state relative-caret-position="768">
+                  <caret line="242" lean-forward="true" selection-start-line="242" selection-end-line="242" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
@@ -146,7 +122,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/betRL.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="570">
+                <state relative-caret-position="-323">
                   <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
                   <folding>
                     <element signature="e#0#10#0" expanded="true" />
@@ -156,9 +132,30 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/train_adaBoost.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1438">
+                  <caret line="240" lean-forward="true" selection-start-line="240" selection-end-line="240" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/train_GB.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-2847">
+                  <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/env/deepenv.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="497">
+                <state relative-caret-position="869">
                   <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
                   <folding>
                     <element signature="e#0#27#0" expanded="true" />
@@ -167,14 +164,50 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/dqn.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="746">
+                <state relative-caret-position="1726">
                   <caret line="127" column="5" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                     <marker date="1544673886894" expanded="true" signature="3160:3366" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/predict.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="745">
+                  <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+                  <folding>
+                    <element signature="e#0#35#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/train_SVM.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-12">
+                  <caret line="227" column="11" lean-forward="true" selection-start-line="227" selection-start-column="11" selection-end-line="227" selection-end-column="11" />
+                  <folding>
+                    <element signature="e#0#35#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/log_reg_network.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-244">
+                  <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+                  <folding>
+                    <element signature="e#0#35#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -222,22 +255,22 @@
         <option value="$PROJECT_DIR$/scrape_team_attributes.ipynb" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/env/__init__.py" />
-        <option value="$PROJECT_DIR$/predict.py" />
         <option value="$PROJECT_DIR$/log_reg_network.py" />
-        <option value="$PROJECT_DIR$/lr_pca_test.py" />
         <option value="$PROJECT_DIR$/train_DT.py" />
-        <option value="$PROJECT_DIR$/train_GB.py" />
         <option value="$PROJECT_DIR$/train_RFC.py" />
         <option value="$PROJECT_DIR$/env/env.py" />
-        <option value="$PROJECT_DIR$/train_adaBoost.py" />
-        <option value="$PROJECT_DIR$/network.py" />
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/betRL.py" />
-        <option value="$PROJECT_DIR$/AutoBetter.py" />
         <option value="$PROJECT_DIR$/env/deepenv.py" />
         <option value="$PROJECT_DIR$/dqn.py" />
-        <option value="$PROJECT_DIR$/train_SVM.py" />
+        <option value="$PROJECT_DIR$/lr_pca_test.py" />
+        <option value="$PROJECT_DIR$/predict.py" />
+        <option value="$PROJECT_DIR$/network.py" />
+        <option value="$PROJECT_DIR$/train_GB.py" />
         <option value="$PROJECT_DIR$/train_NB.py" />
+        <option value="$PROJECT_DIR$/train_SVM.py" />
+        <option value="$PROJECT_DIR$/train_adaBoost.py" />
+        <option value="$PROJECT_DIR$/AutoBetter.py" />
       </list>
     </option>
   </component>
@@ -248,10 +281,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1920" />
     <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1057" />
+    <option name="width" value="1680" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -268,19 +300,25 @@
             <path>
               <item name="FIFABets" type="b2602c69:ProjectViewProjectNode" />
               <item name="FIFABets" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FIFABets" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FIFABets" type="462c0819:PsiDirectoryNode" />
               <item name="weights" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FIFABets" type="b2602c69:ProjectViewProjectNode" />
               <item name="FIFABets" type="462c0819:PsiDirectoryNode" />
               <item name="weights" type="462c0819:PsiDirectoryNode" />
-              <item name="BetnetWeights" type="462c0819:PsiDirectoryNode" />
+              <item name="Adadelta" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FIFABets" type="b2602c69:ProjectViewProjectNode" />
               <item name="FIFABets" type="462c0819:PsiDirectoryNode" />
               <item name="weights" type="462c0819:PsiDirectoryNode" />
-              <item name="SGD" type="462c0819:PsiDirectoryNode" />
+              <item name="Adadelta" type="462c0819:PsiDirectoryNode" />
+              <item name="test13_100iter_reglast2" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -340,10 +378,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="23" width="1920" height="1057" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18636848" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2039072" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -455,23 +493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log_reg_network.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1121">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/predict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train_nn.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -491,88 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lr_pca_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2235">
-          <caret line="164" column="42" selection-start-line="164" selection-start-column="42" selection-end-line="164" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1544495252364" expanded="true" signature="689:690" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/betRL.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="40" column="3" lean-forward="true" selection-start-line="40" selection-start-column="3" selection-end-line="40" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/env/deepenv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dqn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="746">
-          <caret line="127" column="5" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1544673886894" expanded="true" signature="3160:3366" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AutoBetter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="76" column="25" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train_SVM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="48" selection-start-line="48" selection-end-line="58" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train_RFC.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -583,42 +522,141 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_GB.py">
+    <entry file="file://$PROJECT_DIR$/dqn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="1726">
+          <caret line="127" column="5" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+            <marker date="1544673886894" expanded="true" signature="3160:3366" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train_DT.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="46" selection-start-line="46" selection-end-line="53" selection-end-column="51" />
+        <state relative-caret-position="463">
+          <caret line="59" column="36" lean-forward="true" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train_adaBoost.py">
+    <entry file="file://$PROJECT_DIR$/lr_pca_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="844">
+          <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1544689525629" expanded="true" signature="689:690" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-265">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/betRL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-323">
+          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log_reg_network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-244">
+          <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/env/deepenv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="869">
+          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/train_NB.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
+        <state relative-caret-position="768">
+          <caret line="242" lean-forward="true" selection-start-line="242" selection-end-line="242" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_GB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2847">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_SVM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="227" column="11" lean-forward="true" selection-start-line="227" selection-start-column="11" selection-end-line="227" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train_adaBoost.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1438">
+          <caret line="240" lean-forward="true" selection-start-line="240" selection-end-line="240" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/predict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="745">
+          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="634">
+          <caret line="145" column="53" selection-start-line="145" selection-start-column="53" selection-end-line="145" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AutoBetter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="175" column="30" lean-forward="true" selection-start-line="175" selection-start-column="30" selection-end-line="175" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>

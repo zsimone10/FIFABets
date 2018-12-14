@@ -66,7 +66,7 @@ class Network:
         print("TRAINING...")
         #sgd = optimizers.SGD(lr=0.09)
         adadelta = optimizers.Adadelta()
-        self.model.compile(loss='categorical_crossentropy', optimizer=adadelta,
+        self.model.compile(loss='categorical_crossentropy', optimizer=optimizers.Adam(),
                       metrics=['accuracy'])
 
 

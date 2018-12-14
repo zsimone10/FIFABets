@@ -49,7 +49,7 @@ def load_data(path):
 x = load_data('data/most_seasons_PCA_99_pct_44_components.csv')
 
 #print(x)
-y = load_data('data/labels_most_seasons.csv')
+y = load_data('olddata/labels_most_seasons.csv')
 
 
 
@@ -230,7 +230,7 @@ cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
 #print('Best Gamma:', grid_search.best_estimator_.gamma)
 #print(best_result)
 
-'''
+
 def plot_confusion_matrix( cm, classes,
                               normalize=False,
                               cmap=plt.cm.Blues):
@@ -262,10 +262,10 @@ def plot_confusion_matrix( cm, classes,
         plt.ylabel('True label')
         plt.xlabel('Predicted label')
         plt.show()
-'''
+
 #plot_confusion_matrix(cnf_matrix_train, ["Home Win", "Draw", "Away Win"])
 #plot_confusion_matrix(cnf_matrix_test, ["Home Win", "Draw", "Away Win"])
-#plot_confusion_matrix(cnf_matrix_testR, ["Home Win", "Draw", "Away Win"])
+plot_confusion_matrix(cnf_matrix_testR, ["Home Win", "Draw", "Away Win"])
 
 
 
@@ -278,4 +278,4 @@ print(x_test.shape)
 
 #print(classification_report(y_train1, y_pred_train))
 #print(classification_report(y_test1, y_pred_test))
-#print(classification_report(y_testRe, y_pred_testR))
+print(classification_report(y_testRe, y_pred_testR))

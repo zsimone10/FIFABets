@@ -45,20 +45,14 @@ def load_data(path):
     #data = data.drop([0], axis=0)
     return data
     #RETURN data.as_matrix()
-<<<<<<< HEAD
+
 x = load_data('data/most_seasons_PCA_99_pct_44_components.csv')
-=======
-x = load_data('most_seasons_unnormalized.csv')
->>>>>>> 43089473fb4bff2eaca4ba3b81df4e3632f368df
-#print(x)
+
 y = load_data('olddata/labels_most_seasons.csv')
 
-<<<<<<< HEAD
 
 x1 = load_data('data/recent_seasons_PCA_99_pct_44_components.csv')
-=======
-x1 = load_data('recent_seasons_unnormalized.csv')
->>>>>>> 43089473fb4bff2eaca4ba3b81df4e3632f368df
+
 #print(x)
 y1 = load_data('olddata/labels_recent_seasons.csv')
 
@@ -210,12 +204,45 @@ cnf_matrix_train = confusion_matrix(y_train1, y_pred_train)
 cnf_matrix_test = confusion_matrix(y_test1, y_pred_test)
 cnf_matrix_testR = confusion_matrix(y_testRe, y_pred_testR)
 
+
+def plot_confusion_matrix(cm, classes,
+                          normalize=False,
+                          cmap=plt.cm.Blues):
+    """
+    This function prints and plots the confusion matrix.
+    Normalization can be applied by setting `normalize=True`.
+    """
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+        title = 'Normalized confusion matrix'
+    else:
+        title = 'Confusion matrix'
+
+        plt.imshow(cm, interpolation='nearest', cmap=cmap)
+        plt.title(title)
+        plt.colorbar()
+        tick_marks = np.arange(len(classes))
+        plt.xticks(tick_marks, classes, rotation=45)
+        plt.yticks(tick_marks, classes)
+
+        fmt = '.2f' if normalize else 'd'
+        thresh = cm.max() / 2.
+        for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+            plt.text(j, i, format(cm[i, j], fmt),
+                     horizontalalignment="center",
+                     color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+    plt.show()
+plot_confusion_matrix(cnf_matrix_testR ,["Home Win", "Draw", "Away Win"])
+print(classification_report(y_testRe, y_pred_testR))
+
 print(cnf_matrix_train)
 print(cnf_matrix_test)
 print(cnf_matrix_testR)
 
-<<<<<<< HEAD
+
 dump(abc, 'ab.joblib')
-=======
-dump(abc, 'adaBoost.joblib')
->>>>>>> 43089473fb4bff2eaca4ba3b81df4e3632f368df
+

@@ -122,6 +122,7 @@ def generatePrediction(mt, curr_model, to_process):
 #print(new_q_table)
 print("LOADING DATA...")
 x = pd.read_csv('data/recent_seasons_filled_unnormalized.csv')
+
 x = x.drop([0], axis=0)
 #x = x.drop(["Unnamed: 0"], axis=1)
 y = pd.read_csv('olddata/labels_recent_seasons.csv')
