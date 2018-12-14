@@ -133,8 +133,10 @@ def full_multiclass_report(model,
     plot_confusion_matrix(cnf_matrix, classes=classes)
 
 
-data_paths = ['data/most_seasons_PCA_99_pct_44_components.csv'
-              ]
+data_paths = ['data/most_seasons_filled_unnormalized.csv']
+
+    #'data/most_seasons_PCA_99_pct_44_components.csv'
+
               # 'data/most_seasons_PCA_95_pct_34_components.csv',
               # 'data/most_seasons_PCA_90_pct_27_components.csv',
               # 'data/most_seasons_PCA_85_pct_21_components.csv',

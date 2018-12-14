@@ -118,7 +118,7 @@ epsilon = 0.4
 all_epochs = []
 all_penalties = []
 starttime = datetime.now()
-for i in range(1, 30001):
+for i in range(1, 90001):
     state_to_process = env.reset()
     #print("RESET", state_to_process, env.action_space.spaces[1].n)
     epochs, penalties, reward, = 0, 0, 0

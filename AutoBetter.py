@@ -99,13 +99,13 @@ def generatePrediction(mt, curr_model, to_process):
         hardmax[idx] = 1
         prediction = hardmax
     elif mt == "DQN":
-        temp_pred = curr_model.getIntermediate([np.asarray(to_process)])
+        temp_pred = int(round(curr_model.getIntermediate([to_process])[0][0][0]*env.cash))
         full_pred = curr_model.modelReward.predict(np.asarray(to_process))
         print(full_pred)
         max_index = np.argmax(full_pred)
         hardmax = np.zeros((1, 3))
         hardmax[0][max_index] = 1
-        prediction = (temp_pred[0][0], hardmax[0])
+        prediction = (temp_pred, hardmax[0])
     else:
         net_pred = curr_model.model.predict(np.asarray(to_process))
         idx = np.argmax(net_pred)
@@ -125,7 +125,7 @@ all_odds_labels = [home_odds_labels, draw_odds_labels, away_odds_labels]
 odd_source = pd.read_csv("data/recent_seasons_filled_unnormalized.csv")
 #print(new_q_table)
 print("LOADING DATA...")
-x = pd.read_csv('data/recent_seasons_PCA_99_pct_44_components.csv')
+x = pd.read_csv('data/recent_seasons_filled_unnormalized.csv')
 #make odds list
 home_odds = odd_source[home_odds_labels]
 draw_odds = odd_source[draw_odds_labels]
@@ -169,9 +169,9 @@ for i in range(0, x.shape[0]):
         ex = np.asarray(tempEx)
 
     pred = generatePrediction(MODEL_TYPE, curr_model, [ex])
-
+    print(pred)
     if MODEL_TYPE == "DQN":
-        action, pred = (int(pred[0][0]), np.argmax(pred[1])), pred[1]
+        action, pred = (pred[0], np.argmax(pred[1])), pred[1]
 
 
     #print(action, pred)
@@ -193,7 +193,7 @@ for i in range(0, x.shape[0]):
         #print(action[1], np.argmax(y[i]))
 
 
-    odds = top_odds_per_match[i][action[1]]
+    odds = top_odds_per_match[i][np.argmax(y[i])]
     print(cash, action, odds, top_odds_per_match[i])
     if action[1] == np.argmax(y[i]):
         cash += (round(abs(action[0])*odds - abs(action[0])))

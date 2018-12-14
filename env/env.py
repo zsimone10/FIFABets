@@ -99,7 +99,7 @@ class BetEnv(Env):
         odd_source = pd.read_csv("data/recent_seasons_filled_unnormalized.csv")
         # print(new_q_table)
         print("LOADING DATA...")
-        x = pd.read_csv('data/recent_seasons_PCA_99_pct_44_components.csv')
+        x = pd.read_csv('data/recent_seasons_filled_unnormalized.csv')
         # make odds list
         home_odds = odd_source[home_odds_labels]
         draw_odds = odd_source[draw_odds_labels]

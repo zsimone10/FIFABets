@@ -11,7 +11,7 @@ import pandas as pd
 class DeepBetEnv(Env):
 
     def __init__(self):
-        self.matches, self.results = self.getSeason(" ")#TODO filename szn
+        self.matches, self.results, self.odds = self.getSeason(" ")#TODO filename szn
 
         #print(self.matches)
         self.match_index = None
@@ -45,20 +45,23 @@ class DeepBetEnv(Env):
         reward = 0
         done = False
         lastCash = self.cash
+        curr_odds = self.odds[self.match_index][action[1]]
         if self.observation == 2:
-            self.cash += abs(action[0])
+            self.cash += (round(abs(action[0]) * curr_odds)) - abs(action[0])
         elif self.observation == 3:
             self.cash -= abs(action[0])
 
-        #reward = self.cash - lastCash
-        if self.cash - lastCash == 0:
-            reward = -5
-        elif self.cash - lastCash < 0:
-            reward = -10
-        else:
-            reward = 10
+        reward = self.cash - lastCash
+        # if self.cash - lastCash == 0:
+        #     reward = -5
+        # elif self.cash - lastCash < 0:
+        #     reward = -10
+        # else:
+        #     reward = 10
+        if self.cash - lastCash > 0:
+            reward = 20
 
-        if self.cash >= 100 or  self.match_index == self.matches.shape[0]-1: #we are done if made 100 bucks or lost all money or the season is over
+        if self.match_index == self.matches.shape[0]-1: #we are done if made 100 bucks or lost all money or the season is over
             done = True
             reward = self.cash
         if self.cash <= 0:
@@ -101,18 +104,42 @@ class DeepBetEnv(Env):
         return np.asarray([np.asarray(state_to_return)])
 
     def getSeason(self, filename):
-        x = pd.read_csv('olddata/most_seasons_unnormalized.csv')
+        home_odds_labels = ['B365H', 'BWH', 'IWH', 'LBH', 'PSH', 'WHH', 'SJH', 'VCH', 'GBH', 'BSH']
+        draw_odds_labels = ['B365D', 'BWD', 'IWD', 'LBD', 'PSD', 'WHD', 'SJD', 'VCD', 'GBD', 'BSD']
+        away_odds_labels = ['B365A', 'BWA', 'IWA', 'LBA', 'PSA', 'WHA', 'SJA', 'VCA', 'GBA', 'BSA']
+        all_odds_labels = [home_odds_labels, draw_odds_labels, away_odds_labels]
+        odd_source = pd.read_csv("data/recent_seasons_filled_unnormalized.csv")
+        # print(new_q_table)
+        print("LOADING DATA...")
+        x = pd.read_csv('data/recent_seasons_filled_unnormalized.csv')
+        # make odds list
+        home_odds = odd_source[home_odds_labels]
+        draw_odds = odd_source[draw_odds_labels]
+        away_odds = odd_source[away_odds_labels]
+        all_odds = [home_odds, draw_odds, away_odds]
+        top_odds_per_match = []
+        for i in range(0, x.shape[0]):
+            match = []
+            for j in range(0, 3):
+                odds = all_odds[j].loc[i]
+                # print(odds)
+                max_odd = np.amax(odds)
+                # print(max_odd)
+                match.append(max_odd)
+            top_odds_per_match.append(match)
+        # print(top_odds_per_match, len(top_odds_per_match))
+
         x = x.drop([0], axis=0)
-        x = x.drop(["Unnamed: 0"], axis=1)
-        y = pd.read_csv('olddata/labels_most_seasons.csv')
+        #x = x.drop(["Unnamed: 0"], axis=1)
+        y = pd.read_csv('olddata/labels_recent_seasons.csv')
         y = y.drop([0], axis=0)
         y = y.drop(["Unnamed: 0"], axis=1)
         #print( x, y)
         x = x.as_matrix()
-        #x = x[0:319]
+        x = x[0:319]
         y = y.as_matrix()
-        #y = y[0:319]
-        return x, y
+        y = y[0:319]
+        return x, y, top_odds_per_match
 
 
     def getMatchWinner(self):

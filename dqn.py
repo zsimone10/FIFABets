@@ -22,11 +22,11 @@ class DQNAgent:
     def __init__(self, state_size, action_size=3):
         self.state_size = state_size
         self.action_size = action_size
-        self.memory = deque(maxlen=200)
+        self.memory = deque(maxlen=250)
         self.gamma = 0.95    # discount rate originally: [.95]
-        self.epsilon = .4 # exploration rate originally [1.0]
+        self.epsilon = 0.4 # exploration rate originally [1.0]
         self.epsilon_min = 0.01
-        self.epsilon_decay = .99995 #[0.995] 1 means no decay
+        self.epsilon_decay = 1.0 #.995 #[0.995] 1 means no decay
         self.learning_rate = 0.01 #[0.001]
         self.modelReward, self.modelPred = self._build_model(state_size)
 
@@ -34,31 +34,22 @@ class DQNAgent:
         # Neural Net for Deep-Q learning Model
         minputs = Input(shape=(data_dim, ))
         # $ Arm
-        a = Dense(64, activation='relu')(minputs)
-        a = Dense(64, activation='relu')(a)
-        a = Dense(32, activation='relu')(a)
-        a = Dense(32, activation='relu')(a)
-        a = Dense(1, activation='linear', W_constraint = nonneg(), activity_regularizer=regularizers.l2(0.01))(a)
-        #a = LeakyReLU()(a)
-        # Pred Arm
-        b = Dense(512, activation='sigmoid')(minputs)
-        b = Dense(128, activation='sigmoid')(b)
-        b = Dense(128, activation='sigmoid', W_regularizer=regularizers.l2(0.01))(b)
-        b = Dense(64, activation='sigmoid', activity_regularizer=regularizers.l2(0.01), W_constraint = nonneg())(b)
+        a = Dense(64, activation='sigmoid')(minputs)
+        a = Dense(64, activation='sigmoid')(a)
+        a = Dense(32, activation='sigmoid')(a)
+        a = Dense(32, activation='sigmoid')(a)
+        a = Dense(1, activation='sigmoid', W_constraint = nonneg())(a)
 
-        b = Dense(3, activation='softmax')(b)
 
         #reward comilation
-        r = concatenate([a, b])
+        r = concatenate([a, minputs])
+        r = Dense(512, activation='relu')(r)
         r = Dense(128, activation='relu')(r)
         r = Dense(128, activation='relu')(r)
         r = Dense(64, activation='relu')(r)
-        # r = Dense(32, activation='relu')(r)
-        # r = Dense(16, activation='relu')(r)
-        # r = Dense(8, activation='relu')(r)
         output = Dense(3, activation='linear')(r)
         modelReward = Model(inputs=minputs, outputs=output)
-        modelPred = Model(inputs=modelReward.input, outputs=[modelReward.get_layer('dense_5').output, modelReward.get_layer('dense_10').output])
+        modelPred = Model(inputs=modelReward.input, outputs=[modelReward.get_layer('dense_5').output])
         plot_model(modelReward, to_file='modelDQNfull.png')
         plot_model(modelPred, to_file='modelDQNPred.png')
         plot_model(modelReward, to_file='dqnmodel.png', show_shapes=True, show_layer_names=False)
@@ -75,25 +66,19 @@ class DQNAgent:
         self.memory.append((state, action, reward, next_state, done))
 
     def getIntermediate(self, state):
-        getOutput = K.function(inputs=[self.modelReward.input], outputs=[self.modelReward.get_layer('dense_5').output, self.modelReward.get_layer('dense_10').output])
+        getOutput = K.function(inputs=[self.modelReward.input], outputs=[self.modelReward.get_layer('dense_5').output])
 
         return getOutput(state)
 
     def act(self, state):
-        act_values = self.getIntermediate([state])#self.modelPred.predict(state)
-        act_rew = self.modelReward.predict(state)
-        predicted_bet, predicted_highest = int(act_values[0][0][0]), np.argmax(act_rew)
-        #print("check", act_rew, act_values)
-        #print("pred", predicted_bet, predicted_highest, act_values, act_rew)
-        if np.random.rand() <= self.epsilon or predicted_bet > env.cash or predicted_bet < 0:
+
+        if np.random.rand() <= self.epsilon:
             #print('rand', env.action_space.sample())
             return env.action_space.sample()
-        #print("pred: ", predicted_bet, predicted_highest)
-        #print("NOT RANDOM")
-        if predicted_bet != 0:
-            print("DIDNT GUESS 0", predicted_bet)
-        if predicted_highest !=0:
-            print("DIDNT GUESS Home win", predicted_highest)
+        print(self.getIntermediate([state])[0][0][0])
+        predicted_bet = int(round(self.getIntermediate([state])[0][0][0]*env.cash))
+        predicted_highest = np.argmax(self.modelReward.predict(state))
+
         return (predicted_bet, predicted_highest)  # returns action
 
     def replay(self, batch_size):
@@ -118,7 +103,7 @@ class DQNAgent:
         print("SAVING WEIGHTS...")
         self.modelReward.save_weights(name)
 
-EPISODES = 5000
+EPISODES = 201
 
 if __name__ == "__main__":
     env = gym.make('DeepBetEnv-v0')

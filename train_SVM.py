@@ -46,14 +46,14 @@ def load_data(path):
     return data
     #RETURN data.as_matrix()
 
-x = load_data('data/most_seasons_PCA_99_pct_44_components.csv')
+x = load_data('data/most_seasons_filled_unnormalized.csv')
 
 #print(x)
 y = load_data('olddata/labels_most_seasons.csv')
 
 
 
-x1 = load_data('data/recent_seasons_PCA_99_pct_44_components.csv')
+x1 = load_data('data/recent_seasons_filled_unnormalized.csv')
 
 #print(x)
 y1 = load_data('olddata/labels_recent_seasons.csv')
@@ -279,3 +279,4 @@ print(x_test.shape)
 #print(classification_report(y_train1, y_pred_train))
 #print(classification_report(y_test1, y_pred_test))
 print(classification_report(y_testRe, y_pred_testR))
+dump(svm, 'svm.joblib')
