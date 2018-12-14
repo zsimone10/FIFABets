@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7edca93e-9199-4116-8fbd-ddc77cd0a597" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoBetter.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutoBetter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lr_pca_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/lr_pca_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/network.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/predict.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_GB.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_GB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_NB.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_NB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_SVM.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_SVM.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_adaBoost.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_adaBoost.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/visualize_data.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Data.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model.png" beforeDir="false" afterPath="$PROJECT_DIR$/model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/naive_better.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/naive_better.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +28,7 @@
         <counts>
           <entry key="csv" value="10" />
           <entry key="gitignore" value="2" />
-          <entry key="ipynb" value="6" />
+          <entry key="ipynb" value="7" />
           <entry key="json" value="3" />
           <entry key="png" value="2" />
           <entry key="py" value="87" />
@@ -42,7 +37,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSV" value="6" />
-          <entry key="IPNB" value="6" />
+          <entry key="IPNB" value="7" />
           <entry key="Image" value="2" />
           <entry key="JSON" value="3" />
           <entry key="PLAIN_TEXT" value="6" />
@@ -67,7 +62,7 @@
     <splitter split-orientation="horizontal" split-proportion="0.6380368">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/AutoBetter.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="664">
@@ -75,6 +70,15 @@
                   <folding>
                     <element signature="e#0#11#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/naive_better.ipynb">
+              <provider selected="true" editor-type-id="ipnb-editor">
+                <state>
+                  <selected id="0" />
                 </state>
               </provider>
             </entry>
@@ -301,24 +305,6 @@
               <item name="FIFABets" type="b2602c69:ProjectViewProjectNode" />
               <item name="FIFABets" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FIFABets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FIFABets" type="462c0819:PsiDirectoryNode" />
-              <item name="weights" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FIFABets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FIFABets" type="462c0819:PsiDirectoryNode" />
-              <item name="weights" type="462c0819:PsiDirectoryNode" />
-              <item name="Adadelta" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FIFABets" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FIFABets" type="462c0819:PsiDirectoryNode" />
-              <item name="weights" type="462c0819:PsiDirectoryNode" />
-              <item name="Adadelta" type="462c0819:PsiDirectoryNode" />
-              <item name="test13_100iter_reglast2" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -658,6 +644,13 @@
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/naive_better.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
         </state>
       </provider>
     </entry>
